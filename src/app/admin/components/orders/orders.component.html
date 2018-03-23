@@ -1,0 +1,35 @@
+<h3>Orders:</h3>
+<table class="orders-table">
+  <thead>
+      <tr>
+        <th>Order id</th>
+        <th>Order date</th>
+        <th>Total price</th>
+        <th>Shipping details</th>
+        <th>Customer Email</th>
+        <th>First name</th>
+        <th>Second name</th>
+        <th>Phone number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Postal code</th>
+        <th>Country</th>
+      </tr>
+  </thead>
+  <tbody *ngFor="let item of orders">
+      <tr [routerLink]="[item.order_id]" [routerLinkActive]="['router-link-active']" class="order-tr">
+        <td>{{item.order_id}}</td>
+        <td>{{item.order_date}}</td>
+        <td>{{item.total_price}}</td>
+        <td>{{item.shipping}}</td>
+        <td>{{item.customer_email}}</td>
+        <td>{{item.customer_first_name}}</td>
+        <td>{{item.customer_second_name}}</td>
+        <td>{{item.phone_number}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.postal_code}}</td>
+        <td>{{item.country}}</td>
+      </tr>
+  </tbody>
+</table>

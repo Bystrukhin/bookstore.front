@@ -1,0 +1,11 @@
+<mat-card *ngFor="let item of book">
+  <img mat-card-image [alt]="item.title" name="{{item.title}}" src="http://localhost/bookstore.back/resources/assets/images/books/{{item.book_id}}.jpg">
+  <mat-card-title>{{item.title}}</mat-card-title>
+  <mat-card-content>
+    <div>{{item.price}} $</div>
+    <div class="add-cart-wrapper">
+      <a class="cart" (click)="onAddToCart(item)"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <div>{{item.description}}</div>
+  </mat-card-content>
+</mat-card>

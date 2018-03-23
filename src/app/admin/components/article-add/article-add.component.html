@@ -1,0 +1,16 @@
+<form method="post" (ngSubmit)="postAddArticle(f)" #f="ngForm" enctype="multipart/form-data">
+  <div>
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image" ngModel (change)="getFiles($event)">
+    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+  </div>
+  <div >
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" ngModel value="">
+  </div>
+  <div >
+    <label for="text">Text</label>
+    <textarea id="text" name="text" ngModel cols="100" rows="20"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Apply changes</button>
+</form>

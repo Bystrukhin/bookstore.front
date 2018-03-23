@@ -1,0 +1,12 @@
+<mat-card>
+    <img mat-card-image [alt]="book.title" name="{{book.title}}" src="http://localhost/bookstore.back/public/{{book.image}}">
+    <mat-card-title >
+        <a href="books/{{book.category_name}}/{{book.genre_name}}/{{book.book_id}}" routerLinkActive="active">{{book.title}}</a>
+    </mat-card-title>
+    <mat-card-content>
+        <div>{{book.price}} $</div>
+        <div class="add-cart-wrapper">
+            <a class="cart" (click)="onAddToCart(book)"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i></a>
+        </div>
+    </mat-card-content>
+</mat-card>

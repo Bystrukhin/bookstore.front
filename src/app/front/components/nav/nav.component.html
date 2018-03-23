@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col" *ngFor="let item of categoriesMenu" dropdown>
+        <button type="button" id="{{item.name}}" class="btn-title"><a class="dropdown-item" href="books/{{ item.name }}">{{ item.title }}</a></button>
+        <button type="button" dropdownToggle class="btn dropdown-toggle dropdown-toggle-split">
+            <span class="caret"></span>
+            <span class="sr-only">Split button!</span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem" *ngFor="let subItem of item.children"><a class="dropdown-item" href="books/{{ item.name }}/{{subItem.name}}" id="{{subItem.name}}">{{subItem.title}}</a></li>
+        </ul>
+    </div>
+</div>

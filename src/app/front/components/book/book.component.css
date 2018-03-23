@@ -1,0 +1,49 @@
+.news-card {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #E8E8E8;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 420px;
+    margin: 10px auto 0 auto;
+    background-color: #E8E8E8;
+}
+
+mat-card img {
+    margin: 10px auto;
+    width: 150px;
+    height: 250px;
+}
+
+mat-card-content, mat-card-title {
+    font-weight: bold;
+}
+
+mat-card-title a {
+    color: black;
+}
+
+mat-card-title a:hover {
+    text-decoration: none;
+}
+
+mat-card-title {
+    min-height: 45px;
+}
+
+a.cart {
+    font-size: large;
+}
+
+a.cart:hover {
+    cursor: pointer;
+}
+
+a.cart:active {
+    opacity: 0.7;
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="header">Find what you need</div>
+  <form action="">
+    <div>By title:</div>
+    <input name="title" id="searchTitle" #searchTitle (keyup)="0"  type="text" size="40" placeholder="Book title..." />
+
+    <!--<div class="styled-select slate">-->
+      <!--<select #category>-->
+        <!--<option value="">Choose category</option>-->
+        <!--<option value="1">Literature</option>-->
+        <!--<option value="2">Spirituality and health</option>-->
+        <!--<option value="3">Science and technology</option>-->
+        <!--<option value="4">Education</option>-->
+      <!--</select>-->
+    <!--</div>-->
+    <!--<div>By genre:</div>-->
+    <!--<div class="styled-select slate">-->
+      <!--<select #genre>-->
+        <!--<option value="">Choose genre</option>-->
+        <!--<option value="1">Classic</option>-->
+        <!--<option value="2">Modern</option>-->
+        <!--<option value="3">Science fiction and fantasy</option>-->
+        <!--<option value="4">Adventure and detective</option>-->
+        <!--<option value="5">Historical literature</option>-->
+        <!--<option value="6">Medicine and health</option>-->
+        <!--<option value="7">Beauty and fashion</option>-->
+        <!--<option value="8">Art and culture</option>-->
+        <!--<option value="9">Religion and esoterica</option>-->
+        <!--<option value="10">Exact science</option>-->
+        <!--<option value="11">Biology</option>-->
+        <!--<option value="12">Philosophy and sociology</option>-->
+        <!--<option value="13">History</option>-->
+        <!--<option value="14">Architecture</option>-->
+        <!--<option value="15">Military</option>-->
+        <!--<option value="16">Languages</option>-->
+        <!--<option value="17">Higher</option>-->
+        <!--<option value="18">Secondary</option>-->
+        <!--<option value="19">Primary</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  </form>
+    <div id="results" *ngFor="let book of (books | search: searchTitle.value)">
+      <mat-card>
+        <img mat-card-image [alt]="book.title" name="{{book.title}}" src="../assets/images/books/{{book.book_id}}.jpg">
+        <mat-card-title >
+          <a href="books/{{book.category_name}}/{{book.genre_name}}/{{book.book_id}}" routerLinkActive="active">{{book.title}}</a>
+        </mat-card-title>
+        <mat-card-content>
+          <div>{{book.price}} $</div>
+            <a href="admin/books/{{book.book_id}}/edit" routerLinkActive="active"><span><i class="fa fa-pencil"></i>&nbsp; Edit</span></a>
+            <a (click)="getDeleteBook(book.book_id)" routerLinkActive="active"><span><i class="fa fa-trash"></i>&nbsp; Delete</span></a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>
+

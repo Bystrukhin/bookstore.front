@@ -1,0 +1,17 @@
+<h3>Order details:</h3>
+<table class="orders-table">
+  <thead>
+  <tr>
+    <th>Book title</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let item of order">
+  <tr>
+    <td>{{item.title}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.quantity}}</td>
+  </tr>
+  </tbody>
+</table>

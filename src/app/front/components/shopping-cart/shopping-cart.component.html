@@ -1,0 +1,51 @@
+<div class="cart">
+  <h3>Your shopping list...</h3>
+  <div class="product" *ngFor="let item of products">
+    <div class="row">
+      <div class="description">
+        <p>{{item.quantity}} x {{item.product.title}}</p>
+      </div>
+      <div class="price">
+        <p>{{item.quantity*item.product.parsedPrice | currency:'USD':'symbol':'1.0-0' }}</p>
+      </div>
+    </div>
+    <button class="delete" (click)="deleteProduct(item.product)"><span>X</span></button>
+  </div>
+    <button *ngIf="numProducts" class="pay" (click)="openModal(template)">Purchase {{cartTotal | currency:'USD':'symbol':'1.0-0'}}</button>
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <form [formGroup]="orderForm" novalidate (ngSubmit)="openCheckout(products, orderForm.value, orderForm.valid)">
+        <div class="form-group" [ngClass]="{'has-error':!orderForm.controls['firstName'].valid}">
+          <label>*First Name:</label>
+          <input class="form-control" type="text" placeholder="" [formControl]="orderForm.controls['firstName']">
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!orderForm.controls['secondName'].valid}">
+          <label>*Second Name:</label>
+          <input class="form-control" type="text" placeholder="" [formControl]="orderForm.controls['secondName']">
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!orderForm.controls['phoneNumber'].valid}">
+          <label>*Phone number:</label>
+          <input class="form-control" type="text" placeholder="" [formControl]="orderForm.controls['phoneNumber']">
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <input class="form-control" type="text" placeholder="" formControlName="address">
+        </div>
+        <div class="form-group">
+          <label>City:</label>
+          <input class="form-control" type="text" placeholder="" formControlName="city">
+        </div>
+        <div class="form-group">
+          <label>Postal/Zip code:</label>
+          <input class="form-control" type="text" placeholder="" formControlName="postalCode">
+        </div>
+        <div class="form-group">
+          <label>Country:</label>
+          <input class="form-control" type="text" placeholder="" formControlName="country">
+        </div>
+      <button type="submit" class="btn btn-default" [disabled]="!orderForm.valid">Next</button>
+      <button type="button" class="btn btn-primary" (click)="decline()" >Back</button>
+      </form>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,5 @@
+<carousel style="display: block; width: 1000px; margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom: 50px; background-color: #E8E8E8; border-radius: 5px;">
+  <slide *ngFor="let item of bestsellers" >
+    <a href="books/bestsellers/{{item.book_id}}" routerLinkActive="active"><img src="../assets/images/books/{{item.book_id}}.jpg" alt="item.title" style="display: block; width: 25%; margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom: 50px;"></a>
+  </slide>
+</carousel>

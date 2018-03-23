@@ -1,0 +1,104 @@
+.cart {
+    background-color: #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    min-height: 200px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+h3 {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.row {
+    width: 600px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+button.delete {
+    display: block;
+    position: relative;
+    padding-top: 0;
+    width: 50px;
+    background: none;
+    border: none;
+    opacity: 0.6;
+    color: black;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+button.delete span{
+    display: block;
+    position: absolute; //<-- Make it absolute
+    top: 0;
+}
+
+button.delete:hover{
+    opacity: 1;
+}
+
+button.pay {
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 44px;
+        height: 44px;
+        padding: 0 25px;
+        border: none;
+        background-color: #EF364C;
+        box-shadow: 0 2px 19px rgba(0, 0, 0, 0.32);
+        color: white;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+}
+
+button.pay:hover {
+  cursor: pointer;
+}
+
+div.description {
+    width: 550px;
+}
+
+div.price {
+    width: 50px;
+}
+
+label {
+  min-width: 200px;
+  text-align: right;
+}
+
+input {
+  min-width: 300px;
+}
+
+button.btn {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 20px auto;
+}
+
+//button.btn.btn-primary {
+//  margin-left: 150px;
+//}
+//
+//button.btn.btn-default {
+//  margin-right: 100px;
+//}

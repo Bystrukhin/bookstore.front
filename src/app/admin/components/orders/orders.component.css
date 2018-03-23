@@ -1,0 +1,13 @@
+table.orders-table {
+    border: 3px solid black;
+    border-spacing: 0.5rem;
+}
+
+tr.order-tr {
+    cursor: pointer;
+}
+
+td, th {
+    border: 2px solid black;
+    padding: 5px;
+}

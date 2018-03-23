@@ -1,0 +1,19 @@
+mat-card-title {
+    text-align: center;
+}
+
+.news-card {
+    width: 1000px;
+    height: fit-content;
+    margin: 0 auto;
+    background-color: #E8E8E8;
+}
+
+mat-card {
+    width: 800px;
+    height: fit-content;
+    margin: 20px auto 10px auto;
+    background-color: #E8E8E8;
+}
+
+

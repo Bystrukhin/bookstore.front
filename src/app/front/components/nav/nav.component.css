@@ -1,0 +1,34 @@
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.dropdown-item, .d-inline-block, .btn, .dropdown-menu {
+    background-color: #E8E8E8;
+    padding: 5px 3px;
+}
+
+.dropdown-menu {
+    min-width: 220px;
+}
+
+a {
+    font-weight: bold;
+}
+
+.col {
+    display: flex;
+    color: black;
+    margin: 1%;
+    border-radius: 5px;
+    padding-right: 0;
+    padding-left: 0;
+    width: 80%;
+    max-width: 80%;
+}
+
+button.btn-title {
+    width: 200px;
+}

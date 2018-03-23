@@ -1,0 +1,18 @@
+.news-title {
+    text-align: center;
+}
+
+.news-card {
+    width: 1000px;
+    height: 1200px;
+    margin: 0 auto;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+}
+
+mat-card {
+    width: 400px;
+    height: 350px;
+    margin: 20px auto 10px auto;
+    background-color: #E8E8E8;
+}

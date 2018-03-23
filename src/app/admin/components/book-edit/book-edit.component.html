@@ -1,0 +1,78 @@
+<div *ngFor="let item of book" >
+  <form method="post" (ngSubmit)="postEditBook(f)" #f="ngForm" enctype="multipart/form-data">
+    <div>
+      <label for="image">Image</label>
+      <input type="hidden" name="article_old_image" id="book_old_image" [(ngModel)]="item.image" value="http://localhost/bookstore.back/public/{{item.image}}">
+      <input type="file" name="image" id="image" ngModel (change)="getFiles($event)">
+    </div>
+    <div>
+      <input type="hidden" id="id" name="id" [(ngModel)]="item.book_id" value="{{item.book_id}}">
+    </div>
+    <div>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="item.title" value="{{item.title}}">
+    </div>
+    <div>
+      <label for="isbn">ISBN</label>
+      <input type="text" id="isbn" name="isbn" [(ngModel)]="item.ISBN" value="{{item.ISBN}}">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" [(ngModel)]="item.description" cols="100" rows="20">{{item.description}}</textarea>
+    </div>
+    <div>
+      <label for="publication_year">Publication year</label>
+      <input type="text" id="publication_year" name="publication_year" [(ngModel)]="item.publication_year" value="{{item.publication_year}}">
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input type="text" id="price" name="price" [(ngModel)]="item.price" value="{{item.price}}">
+    </div>
+    <div>Genre
+      <select id="genre_id" name="genre_id" [(ngModel)]="item.genre_id">
+        <option value="">Choose genre</option>
+        <option value="1">Classic</option>
+        <option value="2">Modern</option>
+        <option value="3">Science fiction and fantasy</option>
+        <option value="4">Adventure and detective</option>
+        <option value="5">Historical literature</option>
+        <option value="6">Medicine and health</option>
+        <option value="7">Beauty and fashion</option>
+        <option value="8">Art and culture</option>
+        <option value="9">Religion and esoterica</option>
+        <option value="10">Exact science</option>
+        <option value="11">Biology</option>
+        <option value="12">Philosophy and sociology</option>
+        <option value="13">History</option>
+        <option value="14">Architecture</option>
+        <option value="15">Military</option>
+        <option value="16">Languages</option>
+        <option value="17">Higher</option>
+        <option value="18">Secondary</option>
+        <option value="19">Primary</option>
+      </select>
+    </div>
+    <div>
+      <label for="stock_level">Stock level</label>
+      <input type="text" id="stock_level" name="stock_level" [(ngModel)]="item.stock_level" value="{{item.stock_level}}">
+    </div>
+    <div>Type of covering
+      <select id="type_id" name="type_id" [(ngModel)]="item.type_id">
+        <option value="">Choose type of covering</option>
+        <option value="1">Hard</option>
+        <option value="2">Soft</option>
+      </select>
+    </div>
+    <div>Publisher
+      <select id="publisher_id" name="publisher_id" [(ngModel)]="item.publisher_id">
+        <option value="">Choose publisher</option>
+        <option value="1">ЭКСМО</option>
+        <option value="2">Азбука</option>
+        <option value="3">Махаон</option>
+        <option value="4">АСТ</option>
+        <option value="5">Livebook</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>

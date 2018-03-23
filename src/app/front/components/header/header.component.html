@@ -1,0 +1,49 @@
+<div class="header-container">
+  <div class="header">
+    <h2 class="logo"><strong>Online shop «Archive»</strong><a href="/" title="Online shop «Archive»" class="logo"><img src="../../../../assets/images/icons/shop_icon.svg" alt="Online shop «Archive»"></a></h2>
+    <div class="quick-access">
+      <div class="middle">
+        <ul class="links">
+          <li><a href="news" routerLinkActive="active" title="Новости" class="top-link">News</a></li>
+          <li><a href="#" title="Читайка" class="top-link">About us</a></li>
+          <li><a href="#" title="Доставка и Оплата" class="top-link">Delivery</a></li>
+          <li *ngIf="admin"><a href="admin" routerLinkActive="active" title="Панель администратора" class="top-link">Administrator panel</a></li>
+        </ul>
+      </div>
+      <div class="top">
+          <ul>
+            <li><a target="_blank" href="#" class="social-icon fb"><img src="../../../../assets/images/icons/facebook_icon.png" alt="Интернет-магазин «Архив»"></a></li>
+            <li><a target="_blank" href="#" class="social-icon ig"><img src="../../../../assets/images/icons/instagram-icon.png" alt="Интернет-магазин «Архив»"></a></li>
+            <li><a target="_blank" href="#" class="social-icon gl"><img src="../../../../assets/images/icons/google-plus-icon.png" alt="Интернет-магазин «Архив»"></a></li>
+            <li>
+              <div class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                </a>
+                <div *ngIf="token; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a href="user/profile" class="dropdown-item" routerLinkActive="active">Profile</a>
+                    <a href="logout" class="dropdown-item" routerLinkActive="active">Sign Out</a>
+                  </div>
+                </ng-template>
+                <ng-template #elseBlock>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a href="user/signup" class="dropdown-item" routerLinkActive="active">Sign Up</a>
+                    <a href="user/signin" class="dropdown-item" routerLinkActive="active">Sign In</a>
+                  </div>
+                </ng-template>
+              </div>
+            </li>
+          </ul>
+      </div>
+      <div class="search-block">
+        <a class="basket" href="cart"><i class="fa fa-shopping-cart"></i></a>
+        <form id="form-search" action="#" method="get">
+            <input id="Search" type="text" name="q" value="" class="input-text" maxlength="128" autocomplete="off" style="width: 367px;">
+            <button type="submit" title="Search" class="button"><span><span><i class="fa fa-search" aria-hidden="true"></i>Search</span></span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

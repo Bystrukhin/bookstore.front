@@ -1,0 +1,42 @@
+.footer {
+    background-color: #E8E8E8;
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 1000px;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+
+.middle {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.top-address {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+}
+
+.top-phones {
+    display: flex;
+    padding: 20px 10px;
+}
+
+.links {
+    display: flex;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin: 0 5px;
+    font-size: small;
+}

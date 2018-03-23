@@ -1,0 +1,47 @@
+.news-title {
+    text-align: center;
+}
+
+.news-card {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #E8E8E8;
+}
+
+mat-card {
+    width: 450px;
+    height: 450px;
+    margin: 20px auto 10px auto;
+    background-color: #E8E8E8;
+}
+
+mat-card h3 {
+    margin-left: 10px;
+}
+
+mat-card a {
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+}
+div.header {
+    margin: 0 auto;
+    width: 600px;
+    font-size: 24px;
+    text-align: center;
+}
+
+form.form {
+    width: 1000px;
+    margin: 20px auto;
+}
+
+form.form div {
+    font-size: 20px;
+}

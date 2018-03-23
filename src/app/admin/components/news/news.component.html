@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">Find what you need</div>
+  <form action="" class="form">
+    <div>By title:</div>
+    <input name="title" id="searchTitle" #searchTitle (keyup)="0"  type="text" size="40" placeholder="Article title..." />
+  </form>
+  <div class="news-card">
+    <h3 class="news-title">All news</h3>
+    <mat-card *ngFor="let item of (news | search: searchTitle.value)">
+      <a href="news/{{item.id}}" routerLinkActive="active"><img mat-card-image [alt]="item.title" name="{{item.title}}" src="http://localhost/bookstore.back/public/{{item.image}}"></a>
+      <mat-card-footer>
+        <h3 mat-line>{{item.title}}</h3>
+        <a href="admin/news/{{item.id}}/edit" routerLinkActive="active"><span><i class="fa fa-pencil"></i>&nbsp; Edit</span></a>
+        <a (click)="getDeleteArticle(item.id)" routerLinkActive="active"><span><i class="fa fa-trash"></i>&nbsp; Delete</span></a>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
