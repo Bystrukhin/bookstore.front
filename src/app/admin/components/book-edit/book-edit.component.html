@@ -1,8 +1,8 @@
 <div *ngFor="let item of book" >
-  <form method="post" (ngSubmit)="postEditBook(f)" #f="ngForm" enctype="multipart/form-data">
+  <form (ngSubmit)="postEditBook(f)" #f="ngForm" enctype="multipart/form-data">
     <div>
       <label for="image">Image</label>
-      <input type="hidden" name="article_old_image" id="book_old_image" [(ngModel)]="item.image" value="http://localhost/bookstore.back/public/{{item.image}}">
+      <input type="hidden" name="book_old_image" id="book_old_image" [(ngModel)]="item.image" value="http://localhost/bookstore.back/public/{{item.image}}">
       <input type="file" name="image" id="image" ngModel (change)="getFiles($event)">
     </div>
     <div>
@@ -31,25 +31,7 @@
     <div>Genre
       <select id="genre_id" name="genre_id" [(ngModel)]="item.genre_id">
         <option value="">Choose genre</option>
-        <option value="1">Classic</option>
-        <option value="2">Modern</option>
-        <option value="3">Science fiction and fantasy</option>
-        <option value="4">Adventure and detective</option>
-        <option value="5">Historical literature</option>
-        <option value="6">Medicine and health</option>
-        <option value="7">Beauty and fashion</option>
-        <option value="8">Art and culture</option>
-        <option value="9">Religion and esoterica</option>
-        <option value="10">Exact science</option>
-        <option value="11">Biology</option>
-        <option value="12">Philosophy and sociology</option>
-        <option value="13">History</option>
-        <option value="14">Architecture</option>
-        <option value="15">Military</option>
-        <option value="16">Languages</option>
-        <option value="17">Higher</option>
-        <option value="18">Secondary</option>
-        <option value="19">Primary</option>
+        <option *ngFor = "let genreItem of genre" value="{{genreItem.genre_id}}">{{genreItem.genre_name}}</option>
       </select>
     </div>
     <div>
@@ -66,11 +48,13 @@
     <div>Publisher
       <select id="publisher_id" name="publisher_id" [(ngModel)]="item.publisher_id">
         <option value="">Choose publisher</option>
-        <option value="1">ЭКСМО</option>
-        <option value="2">Азбука</option>
-        <option value="3">Махаон</option>
-        <option value="4">АСТ</option>
-        <option value="5">Livebook</option>
+        <option *ngFor = "let publisherItem of publisher" value="{{publisherItem.publisher_id}}">{{publisherItem.publisher_name}}</option>
+      </select>
+    </div>
+    <div>Author
+      <select id="author_id" name="author_id" [(ngModel)]="item.author_id">
+        <option value="">Choose author</option>
+        <option *ngFor = "let authorItem of author" value="{{authorItem.author_id}}">{{authorItem.first_name}} {{authorItem.last_name}}</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Apply changes</button>

@@ -1,0 +1,24 @@
+<div *ngFor="let item of publisher" >
+  <form (ngSubmit)="postEditPublisher(f)" #f="ngForm">
+    <div>
+      <input type="hidden" id="id" name="id" [(ngModel)]="item.publisher_id" value="{{item.publisher_id}}">
+    </div>
+    <div>
+      <label for="publisher_name">Publisher name</label>
+      <input type="text" id="publisher_name" name="publisher_name" [(ngModel)]="item.publisher_name" value="{{item.publisher_name}}">
+    </div>
+    <div>
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" [(ngModel)]="item.address" value="{{item.address}}">
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" [(ngModel)]="item.city" value="{{item.city}}">
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input type="text" id="country" name="country" [(ngModel)]="item.country" value="{{item.country}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>

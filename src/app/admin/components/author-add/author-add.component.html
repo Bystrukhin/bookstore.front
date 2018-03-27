@@ -1,0 +1,17 @@
+<div>
+  <form (ngSubmit)="postAddAuthor(f)" #f="ngForm">
+    <div>
+      <label for="first_name">Author first name</label>
+      <input type="text" id="first_name" name="first_name" ngModel value="">
+    </div>
+    <div>
+      <label for="last_name">Author last name</label>
+      <input type="text" id="last_name" name="last_name" ngModel value="">
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input type="text" id="country" name="country" ngModel value="">
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>

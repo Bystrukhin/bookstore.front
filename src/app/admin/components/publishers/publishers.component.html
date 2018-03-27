@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header">Find what you need</div>
+  <form action="">
+    <div>By title:</div>
+    <input name="publisher_name" id="searchName" #searchName (keyup)="0"  type="text" size="40" placeholder="Publisher name..." />
+  </form>
+  <div id="results" *ngFor="let publisher of (publishers | search: searchName.value)">
+    <mat-card>
+      <mat-card-title >
+        <span>{{publisher.publisher_name}}</span>
+      </mat-card-title>
+      <mat-card-content>
+        <div>{{publisher.address}}</div>
+        <a href="admin/publishers/{{publisher.publisher_id}}/edit" routerLinkActive="active"><span><i class="fa fa-pencil"></i>&nbsp; Edit</span></a>
+        <a (click)="getDeletePublisher(publisher.publisher_id)" routerLinkActive="active"><span><i class="fa fa-trash"></i>&nbsp; Delete</span></a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

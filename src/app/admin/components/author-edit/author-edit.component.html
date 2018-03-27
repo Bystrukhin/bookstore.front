@@ -1,0 +1,20 @@
+<div *ngFor="let item of author">
+  <form (ngSubmit)="postEditAuthor(f)" #f="ngForm">
+    <div>
+      <input type="hidden" id="id" name="id" [(ngModel)]="item.author_id" value="{{item.author_id}}">
+    </div>
+    <div>
+      <label for="first_name">Author first name</label>
+      <input type="text" id="first_name" name="first_name" [(ngModel)]="item.first_name" value="{{item.first_name}}">
+    </div>
+    <div>
+      <label for="last_name">Author last name</label>
+      <input type="text" id="last_name" name="last_name" [(ngModel)]="item.last_name" value="{{item.last_name}}">
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input type="text" id="country" name="country" [(ngModel)]="item.country" value="{{item.country}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>

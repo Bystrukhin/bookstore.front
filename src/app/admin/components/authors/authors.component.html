@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">Find what you need</div>
+  <form action="">
+    <div>By last name:</div>
+    <input name="title" id="lastName" #lastName (keyup)="0"  type="text" size="40" placeholder="Author's name..." />
+  </form>
+  <div id="results" *ngFor="let author of (authors | search: lastName.value)">
+    <mat-card>
+      <mat-card-title >
+        <span>{{author.first_name}} {{author.last_name}}</span>
+      </mat-card-title>
+      <mat-card-content>
+        <div>{{author.country}}</div>
+        <a href="admin/authors/{{author.author_id}}/edit" routerLinkActive="active"><span><i class="fa fa-pencil"></i>&nbsp; Edit</span></a>
+        <a (click)="getDeleteAuthor(author.author_id)" routerLinkActive="active"><span><i class="fa fa-trash"></i>&nbsp; Delete</span></a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

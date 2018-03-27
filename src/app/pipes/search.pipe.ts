@@ -20,8 +20,17 @@ export class SearchPipe implements PipeTransform {
             if (args.length === 0) {
                 resultArray = items;
             } else {
-                for (let item of items) {
+                for (const item of items) {
                     if (item.title != null && item.title.match(new RegExp('' + args, 'i'))) {
+                        resultArray.push(item);
+                    }
+                    if (item.publisher_name != null && item.publisher_name.match(new RegExp('' + args, 'i'))) {
+                        resultArray.push(item);
+                    }
+                    if (item.last_name != null && item.last_name.match(new RegExp('' + args, 'i'))) {
+                        resultArray.push(item);
+                    }
+                    if (item.first_name != null && item.first_name.match(new RegExp('' + args, 'i'))) {
                         resultArray.push(item);
                     }
                 }

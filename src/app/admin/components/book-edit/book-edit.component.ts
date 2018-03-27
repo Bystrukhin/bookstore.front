@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { PublisherService } from '../../../services/publisher.service';
+import { AuthorService } from '../../../services/author.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -17,9 +19,14 @@ export class BookEditComponent implements OnInit {
   returnUrl: string;
   image: any;
   formData: any;
+  genre: any;
+  publisher: any;
+  author: any;
 
     constructor(
         private bookService: BookService,
+        private publisherService: PublisherService,
+        private authorService: AuthorService,
         private route: ActivatedRoute,
         private location: Location,
         private router: Router,
@@ -30,6 +37,9 @@ export class BookEditComponent implements OnInit {
   ngOnInit() {
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'admin/books';
       this.getEditBook();
+      this.getGenres();
+      this.getPublishers();
+      this.getAuthors();
   }
 
     getFiles(event) {
@@ -43,19 +53,43 @@ export class BookEditComponent implements OnInit {
         }
     }
 
+    getGenres(): void {
+        this.bookService.getGenres()
+            .subscribe(
+                response => {
+                    this.genre = response.json();
+                });
+    }
+
+    getPublishers(): void {
+        this.publisherService.getPublishers()
+            .subscribe(
+                response => {
+                    this.publisher = response.json();
+                });
+    }
+
+    getAuthors(): void {
+        this.authorService.getAuthors()
+            .subscribe(
+                response => {
+                    this.author = response.json();
+                });
+    }
+
     getEditBook(): void {
         const id = +this.route.snapshot.paramMap.get('id');
         this.bookService.getBook(id)
             .subscribe(
-                book => {
-                    this.book = book.json();
+                response => {
+                    this.book = response.json();
                 });
     }
 
     postEditBook(form: NgForm): void {
         this.formData.append('title', form.value.title);
         this.formData.append('description', form.value.description);
-        this.formData.append('article_old_image', form.value.article_old_image);
+        this.formData.append('book_old_image', form.value.book_old_image);
         this.formData.append('id', form.value.id);
         this.formData.append('isbn', form.value.isbn);
         this.formData.append('publication_year', form.value.publication_year);
@@ -64,6 +98,7 @@ export class BookEditComponent implements OnInit {
         this.formData.append('stock_level', form.value.stock_level);
         this.formData.append('type_id', form.value.type_id);
         this.formData.append('publisher_id', form.value.publisher_id);
+        this.formData.append('author_id', form.value.author_id);
         this.bookService.postEditBook(this.formData)
             .subscribe(
                 book => {

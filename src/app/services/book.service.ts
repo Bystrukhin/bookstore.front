@@ -31,7 +31,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + genre, options);
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/genre/' + genre, options);
     }
 
     getAllBooks(): Observable<any> {
@@ -47,7 +47,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + category, options);
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/category/' + category, options);
     }
 
     getBook(id: number): Observable<any> {
@@ -58,6 +58,14 @@ export class BookService {
         return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + id, options);
     }
 
+    getGenres(): Observable<any> {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json, image/png, text/html');
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/genres', options);
+    }
+
     getDeleteBook(id: number): Observable<any> {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json, image/png, text/html');
@@ -66,13 +74,21 @@ export class BookService {
         return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + id + '/delete', options);
     }
 
-    postEditBook(formData: any) {
+    postEditBook(formData: any): Observable<any> {
         const headers = new Headers();
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
         return this.http.post('http://localhost/bookstore.back/public/index.php/api/books/'
             + formData.get('id') + '/edit', formData, options);
+    }
+
+    postAddBook(formData: any) {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost/bookstore.back/public/index.php/api/books/add', formData, options);
     }
 
 }

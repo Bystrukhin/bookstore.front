@@ -32,6 +32,7 @@
 .search-block {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .search-block a.basket{
@@ -53,7 +54,7 @@
 .search-block form{
     display: flex;
     justify-content: flex-end;
-    margin-top: 105px;
+    margin-top: 100px;
     margin-right: 20px;
 }
 

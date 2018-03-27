@@ -33,23 +33,32 @@
         <a [routerLink]="['orders']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-shopping-cart"></i>&nbsp;{{ 'Orders' }}
         </a>
-        <a routerLink="comments" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-comment-o"></i>&nbsp;{{ 'Comments' }}
-        </a>
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('menu')">
-                <span><i class="fa fa-plus"></i>&nbsp; {{ 'Menu' }}</span>
+            <a class="list-group-item" (click)="addExpandClass('publishers')">
+                <span><i class="fa fa-address-card"></i>&nbsp; {{ 'Publishers' }}</span>
             </a>
-            <li class="nested" [class.expand]="showMenu === 'menu'">
+            <li class="nested" [class.expand]="showMenu === 'publishers'">
                 <ul class="submenu">
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' }}</span></a>
+                        <a [routerLink]="['publishers/add']" [routerLinkActive]="['router-link-active']"><span>{{ 'Add new' }}</span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' }}</span></a>
+                        <a [routerLink]="['publishers']" [routerLinkActive]="['router-link-active']"><span>{{ 'Edit or delete' }}</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('authors')">
+                <span><i class="fa fa-address-book"></i>&nbsp; {{ 'Authors' }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'authors'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['authors/add']" [routerLinkActive]="['router-link-active']"><span>{{ 'Add new' }}</span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' }}</span></a>
+                        <a [routerLink]="['authors']" [routerLinkActive]="['router-link-active']"><span>{{ 'Edit or delete' }}</span></a>
                     </li>
                 </ul>
             </li>

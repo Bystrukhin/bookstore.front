@@ -1,0 +1,105 @@
+div.container {
+    display: flex;
+    flex-direction: column;
+}
+div.header {
+    margin: 0 auto;
+    width: 600px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.styled-select {
+    /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+    height: 29px;
+    overflow: hidden;
+    width: 240px;
+    color: #999;
+}
+
+.styled-select select {
+    color: #999;
+    background: #222222;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 268px;
+}
+
+.styled-select.slate {
+    /*background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;*/
+    height: 34px;
+    width: 240px;
+    margin-top: 20px;
+}
+
+.styled-select.slate select {
+    border: 1px solid #999;
+    font-size: 16px;
+    height: 34px;
+    width: 268px;
+    color: #999;
+}
+
+form input[type="text"] {
+    background: url(../../../../assets/images/icons/search-dark.png) no-repeat 10px 6px #222222;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #999;
+    width: 200px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+
+form input[type="text"]:focus {
+    width: 300px;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    margin: 10px auto 0 auto;
+    background-color: #E8E8E8;
+}
+
+mat-card-content, mat-card-title {
+    font-weight: bold;
+}
+
+mat-card-title {
+    min-height: 45px;
+}
+
+#lastName {
+    margin-bottom: 10px;
+}
+
+.styled-select.slate {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+mat-card-content a {
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+mat-card-content a .fa-pencil, .fa-trash, span {
+    cursor: pointer;
+    margin-top: 20px;
+}

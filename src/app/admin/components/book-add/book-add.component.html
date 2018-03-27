@@ -1,3 +1,58 @@
-<p>
-  book-add works!
-</p>
+<div>
+  <form (ngSubmit)="postAddBook(f)" #f="ngForm" enctype="multipart/form-data">
+    <div>
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" ngModel (change)="getFiles($event)">
+    </div>
+    <div>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" ngModel value="">
+    </div>
+    <div>
+      <label for="isbn">ISBN</label>
+      <input type="text" id="isbn" name="isbn" ngModel value="">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" ngModel cols="100" rows="20"></textarea>
+    </div>
+    <div>
+      <label for="publication_year">Publication year</label>
+      <input type="text" id="publication_year" name="publication_year" ngModel value="">
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <input type="text" id="price" name="price" ngModel value="">
+    </div>
+    <div>Genre
+      <select id="genre_id" name="genre_id" ngModel>
+        <option value="">Choose genre</option>
+        <option *ngFor = "let genreItem of genre" value="{{genreItem.genre_id}}">{{genreItem.genre_name}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="stock_level">Stock level</label>
+      <input type="text" id="stock_level" name="stock_level" ngModel value="">
+    </div>
+    <div>Type of covering
+      <select id="type_id" name="type_id" ngModel>
+        <option value="">Choose type of covering</option>
+        <option value="1">Hard</option>
+        <option value="2">Soft</option>
+      </select>
+    </div>
+    <div>Publisher
+      <select id="publisher_id" name="publisher_id" ngModel>
+        <option value="">Choose publisher</option>
+        <option *ngFor = "let publisherItem of publisher" value="{{publisherItem.publisher_id}}">{{publisherItem.publisher_name}}</option>
+      </select>
+    </div>
+    <div>Author
+      <select id="author_id" name="author_id" ngModel>
+        <option value="">Choose author</option>
+        <option *ngFor = "let authorItem of author" value="{{authorItem.author_id}}">{{authorItem.first_name}} {{authorItem.last_name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>
