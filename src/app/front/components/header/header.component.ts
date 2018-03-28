@@ -2,23 +2,34 @@ import { Component, DoCheck } from '@angular/core';
 import { Location } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 import { CartService } from '../../../services/cart.service';
+import { SearchService } from '../../../services/search.service';
+import { Subject } from 'rxjs/Subject';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements DoCheck {
-
   currentUser = [];
   token: boolean;
   admin = false;
+  results: Object;
+  searchTerm$ = new Subject<string>();
 
-  constructor(
+    constructor(
         public location: Location,
         private cartService: CartService,
         private authService: AuthService,
-  ) { }
+        private searchService: SearchService
+  ) {
+        this.searchService.search(this.searchTerm$)
+            .subscribe(results => {
+                this.results = results.json();
+                console.log(this.results);
+            });
+    }
 
   ngDoCheck() {
     if (this.authService.getToken()) {

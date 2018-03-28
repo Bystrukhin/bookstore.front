@@ -24,7 +24,6 @@ import { PublisherService } from '../services/publisher.service';
 import { AuthorService } from '../services/author.service';
 
 import { FilterPipe } from '../pipes/filter.pipe';
-import { SearchPipe } from '../pipes/search.pipe';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { BookAddComponent } from './components/book-add/book-add.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
@@ -34,6 +33,7 @@ import { PublisherEditComponent } from './components/publisher-edit/publisher-ed
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorEditComponent } from './components/author-edit/author-edit.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
+import { AppPipesModule } from '../app-pipes.module';
 
 
 @NgModule({
@@ -48,6 +48,7 @@ import { AuthorAddComponent } from './components/author-add/author-add.component
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
+    AppPipesModule
   ],
   declarations: [
       AdminComponent,
@@ -56,7 +57,6 @@ import { AuthorAddComponent } from './components/author-add/author-add.component
       SidebarComponent,
       HeaderComponent,
       FilterPipe,
-      SearchPipe,
       ArticleEditComponent,
       ArticleAddComponent,
       OrdersComponent,
@@ -68,7 +68,7 @@ import { AuthorAddComponent } from './components/author-add/author-add.component
       PublisherEditComponent,
       AuthorsComponent,
       AuthorEditComponent,
-      AuthorAddComponent
+      AuthorAddComponent,
   ],
     providers: [
     PublisherService, AuthorService

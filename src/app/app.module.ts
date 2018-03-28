@@ -28,6 +28,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FrontModule,
     AppRoutingModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppPipesModule } from '../app-pipes.module';
 
 import { BookService } from '../services/book.service';
 import { NewsService } from '../services/news.service';
@@ -19,6 +20,7 @@ import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 import { PaymentService } from '../services/payment.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { SearchService } from '../services/search.service';
 
 import { BooksComponent } from './components/books/books.component';
 import { BookComponent } from './components/book/book.component';
@@ -58,6 +60,7 @@ import { PaymentComponent } from './components/payment/payment.component';
       HttpClientModule,
       ReactiveFormsModule,
       ModalModule.forRoot(),
+      AppPipesModule,
   ],
   declarations: [
       HomePageComponent,
@@ -87,6 +90,7 @@ import { PaymentComponent } from './components/payment/payment.component';
         CartService,
         PaymentService,
         BsModalService,
+        SearchService
     ],
     bootstrap: [FrontComponent]
 })
