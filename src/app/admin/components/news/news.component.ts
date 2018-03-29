@@ -40,6 +40,7 @@ export class NewsComponent implements OnInit {
                 response => {
                     console.log(response);
                 });
-        this.router.navigateByUrl(this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+        window.location.reload();
     }
 }

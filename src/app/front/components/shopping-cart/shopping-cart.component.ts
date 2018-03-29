@@ -84,6 +84,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
     deleteProduct(product) {
         this.cartService.deleteProductFromCart(product);
+        window.location.reload();
     }
 
     openCheckout(products, orderForm) {

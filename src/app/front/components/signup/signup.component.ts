@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     onSignup(form: NgForm) {
         this.authService.signup(form.value.username, form.value.email, form.value.password)
             .subscribe(
-                data => this.router.navigateByUrl(this.returnUrl),
+                data => this.router.navigate([this.returnUrl]),
                 error => console.log(error)
             );
     }

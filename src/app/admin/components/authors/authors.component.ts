@@ -40,6 +40,7 @@ export class AuthorsComponent implements OnInit {
                     console.log(response);
                 });
         this.router.navigateByUrl(this.returnUrl);
+        window.location.reload();
     }
 
 }

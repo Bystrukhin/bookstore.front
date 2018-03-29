@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
     onSignin(form: NgForm) {
         this.authService.signin(form.value.email, form.value.password)
             .subscribe(
-                data => this.router.navigateByUrl(this.returnUrl),
+                data => this.router.navigate([this.returnUrl]),
                 error => console.log(error)
             );
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));

@@ -51,7 +51,8 @@ export class PublisherEditComponent implements OnInit {
                 response => {
                     this.publisher = response.json();
                 });
-        this.router.navigateByUrl(this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+        window.location.reload();
     }
 
 }

@@ -62,6 +62,7 @@ export class ArticleEditComponent implements OnInit {
                     response => {
                         this.article = response.json();
                     });
-      this.router.navigateByUrl(this.returnUrl);
+      this.router.navigate([this.returnUrl]);
+      window.location.reload();
   }
 }

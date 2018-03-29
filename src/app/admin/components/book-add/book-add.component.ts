@@ -94,7 +94,8 @@ export class BookAddComponent implements OnInit {
                 book => {
                     this.book = book.json();
                 });
-        this.router.navigateByUrl(this.returnUrl);
+        this.router.navigate([this.returnUrl]);
+        window.location.reload();
     }
 
 }
