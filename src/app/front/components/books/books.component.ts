@@ -9,7 +9,7 @@ import { BookService } from '../../../services/book.service';
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
-    providers: [BookService],
+  providers: [BookService],
 })
 export class BooksComponent implements OnInit {
   books: Book[];

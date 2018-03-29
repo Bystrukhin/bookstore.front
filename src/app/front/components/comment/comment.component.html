@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title >
+    <a href="#" routerLinkActive="active"></a>
+  </mat-card-title>
+  <mat-card-content>
+    <div>{{comment.text}}</div>
+    <div class="add-like-wrapper">
+      <a class="like" (click)="onLike(comment)"><i class="fa fa-like fa-1x" aria-hidden="true"></i></a>
+    </div>
+  </mat-card-content>
+</mat-card>

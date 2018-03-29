@@ -21,6 +21,7 @@ import { CartService } from '../services/cart.service';
 import { PaymentService } from '../services/payment.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { SearchService } from '../services/search.service';
+import { CommentService } from '../services/comment.service';
 
 import { BooksComponent } from './components/books/books.component';
 import { BookComponent } from './components/book/book.component';
@@ -42,6 +43,8 @@ import { FrontComponent } from './front.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { UrlFormComponent } from './components/url-form/url-form.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   imports: [
@@ -82,6 +85,8 @@ import { PaymentComponent } from './components/payment/payment.component';
       ShoppingCartComponent,
       UrlFormComponent,
       PaymentComponent,
+      CommentsComponent,
+      CommentComponent,
   ],
     providers: [
         BookService,
@@ -90,7 +95,8 @@ import { PaymentComponent } from './components/payment/payment.component';
         CartService,
         PaymentService,
         BsModalService,
-        SearchService
+        SearchService,
+        CommentService
     ],
     bootstrap: [FrontComponent]
 })
