@@ -4,7 +4,7 @@
     <div>By title:</div>
     <input name="title" id="searchTitle" #searchTitle (keyup)="0"  type="text" size="40" placeholder="Book title..." />
   </form>
-    <div id="results" *ngFor="let book of (books | search: searchTitle.value)">
+    <div id="results" *ngFor="let book of (pagedBooks | search: searchTitle.value)">
       <mat-card>
         <a href="books/{{book.category_name}}/{{book.genre_name}}/{{book.book_id}}" routerLinkActive="active"><img mat-card-image [alt]="book.title" name="{{book.title}}" src="http://localhost/bookstore.back/public/{{book.image}}"></a>
         <mat-card-title >
@@ -17,5 +17,22 @@
         </mat-card-content>
       </mat-card>
     </div>
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
 </div>
 

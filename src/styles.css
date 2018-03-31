@@ -4,8 +4,10 @@ body {
 app-books {
     width: 1000px;
     margin: 20px auto;
+    padding-left: 32px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: flex-start;
 }

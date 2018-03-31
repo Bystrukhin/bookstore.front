@@ -32,23 +32,25 @@ export class AuthService {
             )
             .do(
                 tokenData => {
-                    localStorage.setItem('token', tokenData.token);
-                    localStorage.setItem('currentUser', JSON.stringify(tokenData.user));
+                    sessionStorage.setItem('token', tokenData.token);
+                    sessionStorage.setItem('currentUser', JSON.stringify(tokenData.user));
 
                 }
             );
     }
 
     logout() {
-        return localStorage.clear();
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('currentUser');
+        return true;
     }
 
     getToken() {
-        return localStorage.getItem('token');
+        return sessionStorage.getItem('token');
     }
 
     getUser() {
-        return localStorage.getItem('currentUser');
+        return sessionStorage.getItem('currentUser');
     }
 
 }

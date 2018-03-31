@@ -72,11 +72,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.modalRef = this.modalService.show(template, {class: 'modal-lg'});
     }
 
-    // confirm(): void {
-    //     this.message = 'Confirmed!';
-    //     this.modalRef.hide();
-    // }
-
     decline(): void {
         this.message = 'Declined!';
         this.modalRef.hide();

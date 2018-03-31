@@ -12,6 +12,9 @@ import { FrontModule } from './front/front.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { PaginationService } from './services/pagination.service';
+import { AuthGuardGuard } from './auth-guard.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [PaginationService, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

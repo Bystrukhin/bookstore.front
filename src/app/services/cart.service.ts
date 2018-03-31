@@ -11,6 +11,7 @@ import 'rxjs/add/operator/catch';
 export class CartService {
     products: any[] = [];
     cartTotal = 0;
+    totalQuantity = 0;
 
     private cartSubject = new BehaviorSubject<ShoppingCartState>(<ShoppingCartState>{ products: this.products, cartTotal: this.cartTotal });
     cartState = this.cartSubject.asObservable();
@@ -51,6 +52,9 @@ export class CartService {
                 quantity: 1
             });
         }
+        this.totalQuantity = JSON.parse(sessionStorage.getItem('productsQuantity'));
+        this.totalQuantity++;
+        sessionStorage.setItem('productsQuantity', JSON.stringify(this.totalQuantity));
         this.cartTotal += parsedPrice;
         this.cartSubject.next(<ShoppingCartState>{ products: this.products, cartTotal: this.cartTotal });
         sessionStorage.setItem('cart', JSON.stringify({ products: this.products, cartTotal: this.cartTotal }));
@@ -68,6 +72,11 @@ export class CartService {
         this.products = this.products.filter(_product => {
             if (_product.product.book_id === product.book_id) {
                 this.cartTotal -= _product.product.parsedPrice * _product.quantity;
+                this.totalQuantity = JSON.parse(sessionStorage.getItem('productsQuantity'));
+                if (this.totalQuantity > 0) {
+                    this.totalQuantity -= _product.quantity;
+                    sessionStorage.setItem('productsQuantity', JSON.stringify(this.totalQuantity));
+                }
                 return false;
             }
             return true;

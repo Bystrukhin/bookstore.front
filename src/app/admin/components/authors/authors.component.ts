@@ -3,6 +3,7 @@ import {Author} from '../../../models/author';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthorService} from '../../../services/author.service';
+import { PaginationService } from '../../../services/pagination.service';
 
 @Component({
   selector: 'app-authors',
@@ -13,9 +14,12 @@ export class AuthorsComponent implements OnInit {
 
     authors: Author[];
     returnUrl: string;
+    pager: any = {};
+    pagedAuthors: any[];
 
     constructor(
         private authorService: AuthorService,
+        private paginationService: PaginationService,
         private route: ActivatedRoute,
         private location: Location,
         private router: Router,
@@ -30,6 +34,7 @@ export class AuthorsComponent implements OnInit {
             .subscribe(
                 response => {
                     this.authors = response.json();
+                    this.setPage(1);
                 });
     }
 
@@ -41,6 +46,16 @@ export class AuthorsComponent implements OnInit {
                 });
         this.router.navigateByUrl(this.returnUrl);
         window.location.reload();
+    }
+
+    setPage(page: number) {
+        if (page < 1 || page > this.pager.totalPages) {
+            return;
+        }
+
+        this.pager = this.paginationService.getPager(this.authors.length, page);
+
+        this.pagedAuthors = this.authors.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
 
 }

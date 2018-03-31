@@ -38,7 +38,9 @@
           </ul>
       </div>
       <div class="search-block">
-        <a class="basket" href="cart"><i class="fa fa-shopping-cart"></i></a>
+        <a class="basket" href="cart"><i class="fa fa-shopping-cart"></i>
+          <span *ngIf="productsQuantity">{{productsQuantity}}</span>
+        </a>
         <form id="form-search" action="">
           <input (keyup)="searchTerm$.next($event.target.value)" name="title" id="search"  type="text" size="40" placeholder="Search...">
           <!--<button type="submit" title="Search" class="button"><span><span><i class="fa fa-search" aria-hidden="true"></i>Search</span></span></button>-->

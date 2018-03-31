@@ -13,6 +13,7 @@ import {FormControl} from '@angular/forms';
 })
 export class HeaderComponent implements DoCheck {
   currentUser = [];
+  productsQuantity = 0;
   token: boolean;
   admin = false;
   results: Object;
@@ -38,7 +39,7 @@ export class HeaderComponent implements DoCheck {
         this.token = false;
     }
     if (this.authService.getUser()) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
         const newArr = this.currentUser.filter(function(item) {
             return item.admin === 1;
         });
@@ -48,6 +49,7 @@ export class HeaderComponent implements DoCheck {
             this.admin = false;
         }
     }
+      this.productsQuantity = JSON.parse(sessionStorage.getItem('productsQuantity'));
   }
 
   onURLChange(url) {

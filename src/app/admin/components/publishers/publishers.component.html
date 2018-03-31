@@ -4,7 +4,7 @@
     <div>By title:</div>
     <input name="publisher_name" id="searchName" #searchName (keyup)="0"  type="text" size="40" placeholder="Publisher name..." />
   </form>
-  <div id="results" *ngFor="let publisher of (publishers | search: searchName.value)">
+  <div id="results" *ngFor="let publisher of (pagedPublishers | search: searchName.value)">
     <mat-card>
       <mat-card-title >
         <span>{{publisher.publisher_name}}</span>
@@ -16,5 +16,22 @@
       </mat-card-content>
     </mat-card>
   </div>
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
 </div>
 

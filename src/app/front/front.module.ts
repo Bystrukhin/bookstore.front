@@ -96,7 +96,7 @@ import { CommentComponent } from './components/comment/comment.component';
         PaymentService,
         BsModalService,
         SearchService,
-        CommentService
+        CommentService,
     ],
     bootstrap: [FrontComponent]
 })
