@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class SignupComponent implements OnInit {
     returnUrl: string;
+    currentUser: User;
 
     constructor(
         private authService: AuthService,
@@ -27,6 +29,7 @@ export class SignupComponent implements OnInit {
                 data => this.router.navigate([this.returnUrl]),
                 error => console.log(error)
             );
+        this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     }
 
 }

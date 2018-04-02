@@ -28,6 +28,6 @@ export class SigninComponent implements OnInit {
                 data => this.router.navigate([this.returnUrl]),
                 error => console.log(error)
             );
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     }
 }
