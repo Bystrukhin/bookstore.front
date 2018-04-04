@@ -18,8 +18,24 @@ export class CommentService {
         return this.http.get('http://localhost/bookstore.back/public/index.php/api/comments/' + id, options);
     }
 
-    like(id): Observable<any> {
+    like (id): Observable<any> {
         return null;
+    }
+
+    postAddComment(formData: any) {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost/bookstore.back/public/index.php/api/comments/add', formData, options);
+    }
+
+    getUser(id) {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json, image/png, text/html');
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/user/' + id, options);
     }
 
 }

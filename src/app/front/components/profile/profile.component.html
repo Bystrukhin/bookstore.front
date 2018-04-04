@@ -1,3 +1,44 @@
-<p>
-  profile works!
-</p>
+<div class="profile-container">
+  <div class="user-data" *ngFor="let item of user">
+    <label for="name">Name:</label>
+    <div id="name">{{item.name}}</div>
+    <label for="email">Name:</label>
+    <div id="email">{{item.email}}</div>
+  </div>
+  <div class="orders" *ngFor="let order of orders">
+    <table class="orders-table">
+      <thead>
+      <tr>
+        <th>Order id</th>
+        <th>Order date</th>
+        <th>Total price</th>
+        <th>Shipping details</th>
+        <th>Customer Email</th>
+        <th>First name</th>
+        <th>Second name</th>
+        <th>Phone number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Postal code</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let item of orders">
+      <tr [routerLink]="[item.order_id]" [routerLinkActive]="['router-link-active']" class="order-tr">
+        <td>{{order.order_id}}</td>
+        <td>{{order.order_date}}</td>
+        <td>{{order.total_price}}</td>
+        <td>{{order.shipping}}</td>
+        <td>{{order.customer_email}}</td>
+        <td>{{order.customer_first_name}}</td>
+        <td>{{order.customer_second_name}}</td>
+        <td>{{order.phone_number}}</td>
+        <td>{{order.address}}</td>
+        <td>{{order.city}}</td>
+        <td>{{order.postal_code}}</td>
+        <td>{{order.country}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

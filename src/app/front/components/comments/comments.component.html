@@ -1,1 +1,12 @@
+<div *ngIf="user" class="comment-container">
+    <form (ngSubmit)="postAddComment(f)" #f="ngForm" enctype="multipart/form-data">
+        <div>
+            <textarea id="text" name="text" ngModel cols="100" rows="8"></textarea>
+        </div>
+        <div *ngFor="let user of currentUser">
+            <input type="hidden" id="user_id" name="user_id" [(ngModel)]="user.user_id" value="{{user.user_id}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Add comment</button>
+    </form>
+</div>
 <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>

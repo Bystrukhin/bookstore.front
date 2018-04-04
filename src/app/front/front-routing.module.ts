@@ -30,7 +30,6 @@ const frontRoutes: Routes = [
                     { path: 'news/:id', component: ArticleComponent},
                     { path: 'user/signup', component: SignupComponent },
                     { path: 'user/signin', component: SigninComponent },
-                    { path: 'user', component: ProfileComponent },
                     { path: 'user/profile', component: ProfileComponent },
                     { path: 'logout', component: LogoutComponent },
                     { path: 'checkout', component: PaymentComponent },

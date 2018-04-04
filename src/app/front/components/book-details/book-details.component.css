@@ -5,7 +5,7 @@
     background-color: #E8E8E8;
 }
 
-mat-card {
+mat-card, app-comments {
     display: flex;
     flex-direction: column;
     width: 1000px;

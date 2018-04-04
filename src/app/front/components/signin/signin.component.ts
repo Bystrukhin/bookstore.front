@@ -11,7 +11,8 @@ import { User } from '../../../models/user';
 })
 export class SigninComponent implements OnInit {
     returnUrl: string;
-    currentUser: User;
+    currentUser: User[];
+
     constructor(
         private authService: AuthService,
         private route: ActivatedRoute,

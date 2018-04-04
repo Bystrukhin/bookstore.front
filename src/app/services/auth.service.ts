@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class AuthService {
@@ -19,14 +20,18 @@ export class AuthService {
                 (response: Response) => {
                     const token = response.json().token;
                     const user = response.json().user;
+                    const newUser = [];
+                    for (const item of user) {
+                        newUser.push(item);
+                    }
                     const base64Url = token.split('.')[1];
                     const base64 = base64Url.replace('-', '+').replace('_', '/');
-                    return {token: token, user: user, decoded: JSON.parse(window.atob(base64))};
+                    return {token: token, user: newUser, decoded: JSON.parse(window.atob(base64))};
                 }
             )
             .do(
                 tokenData => {
-                    sessionStorage.setItem('token', tokenData.token);
+                    sessionStorage.setItem('token', JSON.stringify(tokenData.token));
                     sessionStorage.setItem('currentUser', JSON.stringify(tokenData.user));
 
                 }
@@ -41,16 +46,19 @@ export class AuthService {
                 (response: Response) => {
                     const token = response.json().token;
                     const user = response.json().user;
+                    const newUser = [];
+                    for (const item of user) {
+                        newUser.push(item);
+                    }
                     const base64Url = token.split('.')[1];
                     const base64 = base64Url.replace('-', '+').replace('_', '/');
-                    return {token: token, user: user, decoded: JSON.parse(window.atob(base64))};
+                    return {token: token, user: newUser, decoded: JSON.parse(window.atob(base64))};
                 }
             )
             .do(
                 tokenData => {
                     sessionStorage.setItem('token', tokenData.token);
                     sessionStorage.setItem('currentUser', JSON.stringify(tokenData.user));
-
                 }
             );
     }
