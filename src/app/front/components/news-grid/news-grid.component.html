@@ -1,5 +1,5 @@
 <div class="news-card">
-    <h3 class="news-title">Последние новости</h3>
+    <h3 class="news-title">Recent news</h3>
     <mat-card *ngFor="let item of news">
         <a href="news/{{item.id}}" routerLinkActive="active"><img mat-card-image [alt]="item.title" name="{{item.title}}" src="http://localhost/bookstore.back/public/{{item.image}}"></a>
         <mat-card-footer>

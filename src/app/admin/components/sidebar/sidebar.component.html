@@ -33,6 +33,9 @@
         <a [routerLink]="['orders']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-shopping-cart"></i>&nbsp;{{ 'Orders' }}
         </a>
+        <a [routerLink]="['comments']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-shopping-cart"></i>&nbsp;{{ 'Comments' }}
+        </a>
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('publishers')">
                 <span><i class="fa fa-address-card"></i>&nbsp; {{ 'Publishers' }}</span>

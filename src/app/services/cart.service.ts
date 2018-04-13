@@ -61,7 +61,6 @@ export class CartService {
     }
 
     deleteProductFromCart(product) {
-            console.log(product);
             let cart = JSON.parse(sessionStorage.getItem('cart'));
             this.products.length = 0;
             this.cartTotal = 0;
@@ -112,6 +111,6 @@ export class CartService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/orders/user' + id, options);
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/orders/user/' + id, options);
     }
 }

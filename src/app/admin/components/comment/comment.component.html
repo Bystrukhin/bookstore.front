@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title >
+    <h3 id="book_title">Books title: {{comment.title}}</h3>
+  </mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let item of user">
+      <h3 id="user_id">User name: {{item.name}}</h3>
+    </div>
+    <div>Comment date: {{comment.date}}</div>
+    <div>{{comment.text}}</div>
+    <div class="add-like-wrapper">
+      <a class="like" (click)="onLike(comment)"><i class="fa fa-like fa-1x" aria-hidden="true"></i></a>
+    </div>
+    <form (ngSubmit)="postEditComment(f)" #f="ngForm" enctype="multipart/form-data">
+      <div>
+        <input type="hidden" id="id" name="id" [(ngModel)]="comment.comment_id" value="{{comment.comment_id}}">
+      </div>
+      <div>Visibility
+        <select id="visibility" name="visibility" [(ngModel)]="comment.visible">
+          <option value="0">Hidden</option>
+          <option value="1">Visible</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Apply changes</button>
+    </form>
+  </mat-card-content>
+</mat-card>

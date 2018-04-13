@@ -1,0 +1,8 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    height: fit-content;
+    margin: 20px auto 0 auto;
+    background-color: #E8E8E8;
+}

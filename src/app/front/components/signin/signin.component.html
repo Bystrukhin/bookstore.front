@@ -9,3 +9,24 @@
   </div>
   <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Sign in</button>
 </form>
+<div class="reset-container">
+  <button class="reset" (click)="openModal(template)">Forgot password?</button>
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <form class="modal-form" (ngSubmit)="onForgotPassword(f)" #f="ngForm">
+        <div>
+          <label for="password_email">Your email:</label>
+          <input type="email" ngModel id="password_email" name="email" value="" required>
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!f.valid">Confirm</button>
+        <button type="button" class="btn btn-primary" (click)="decline()" >Back</button>
+      </form>
+    </div>
+  </ng-template>
+    <div *ngIf="success_message" class="modal-body text-center">
+      <div class="form-group">Your new password was sent to your email!</div>
+    </div>
+    <div *ngIf="error_message" class="modal-body text-center">
+      <div class="form-group">Your email was not found in our database!</div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {FrontComponent} from './front.component';
 import {BookDetailsComponent} from './components/book-details/book-details.component';
 import {ProfileComponent} from './components/profile/profile.component';
+import {ProfileEditComponent} from './components/profile-edit/profile-edit.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {SigninComponent} from './components/signin/signin.component';
 import {BooksComponent} from './components/books/books.component';
@@ -13,6 +14,8 @@ import {NewsComponent} from './components/news/news.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 import {PaymentComponent} from './components/payment/payment.component';
+import {UserCommentsComponent} from './components/user-comments/user-comments.component';
+import {OrdersComponent} from './components/orders/orders.component';
 
 const frontRoutes: Routes = [
     {
@@ -31,6 +34,9 @@ const frontRoutes: Routes = [
                     { path: 'user/signup', component: SignupComponent },
                     { path: 'user/signin', component: SigninComponent },
                     { path: 'user/profile', component: ProfileComponent },
+                    { path: 'user/profile/edit/:userId', component: ProfileEditComponent },
+                    { path: 'user/profile/comments/:userId', component: UserCommentsComponent },
+                    { path: 'user/profile/orders/:userId', component: OrdersComponent },
                     { path: 'logout', component: LogoutComponent },
                     { path: 'checkout', component: PaymentComponent },
                     { path: '', component: HomePageComponent},

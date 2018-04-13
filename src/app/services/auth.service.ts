@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class AuthService {
@@ -61,6 +58,31 @@ export class AuthService {
                     sessionStorage.setItem('currentUser', JSON.stringify(tokenData.user));
                 }
             );
+    }
+
+    getEditUser(id: number): Observable<any> {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json, image/png, text/html');
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/user/' + id, options);
+    }
+
+    postEditUser(formData: any): Observable<any> {
+        const headers = new Headers();
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost/bookstore.back/public/index.php/api/user/'
+            + formData.get('id') + '/edit', formData, options);
+    }
+
+    reset(formData: any): Observable<any> {
+        console.log(formData.get('email'));
+        const headers = new Headers();
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost/bookstore.back/public/index.php/api/password/reset',
+            formData, options);
     }
 
     logout() {

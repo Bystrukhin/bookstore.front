@@ -5,7 +5,8 @@ import { PaymentService } from '../../../services/payment.service';
 import { Subscription } from 'rxjs/Subscription';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 declare var jquery: any;
 declare var $: any;
@@ -25,6 +26,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     numProducts: number = 0;
     expandedHeight: string;
     cartTotal: number = 0;
+    currentUser = [];
+    user_id;
 
     private subscription: Subscription;
 
@@ -34,10 +37,19 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
                 changeDetectorRef: ChangeDetectorRef,
                 private paymentService: PaymentService,
                 private modalService: BsModalService,
+                private authService: AuthService,
                 fb: FormBuilder
     ) {
+        if (this.authService.getUser()) {
+            this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            for (let item of this.currentUser) {
+                this.user_id = item.user_id;
+            }
+            console.log(this.user_id);
+        }
         this.changeDetectorRef = changeDetectorRef;
         this.orderForm = fb.group({
+            'user_id': new FormControl(this.user_id),
             'firstName': [null, Validators.required],
             'secondName': [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
             'phoneNumber': [null, Validators.required],
@@ -85,6 +97,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     openCheckout(products, orderForm) {
         this.modalRef.hide();
         sessionStorage.setItem('form', JSON.stringify(orderForm));
+        console.log(sessionStorage.getItem('form'));
         const handler = (<any>window).StripeCheckout.configure({
             key: 'pk_test_P1hSoeinjQLHLuPzZo0hwMOA',
             locale: 'auto',
@@ -96,6 +109,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
                     success: function(data) {
                         sessionStorage.removeItem('cart');
                         sessionStorage.removeItem('form');
+                        sessionStorage.removeItem('productsQuantity');
                         window.location.reload();
                         console.log('Card successfully charged!');
                     },

@@ -45,6 +45,9 @@ import { UrlFormComponent } from './components/url-form/url-form.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { UserCommentsComponent } from './components/user-comments/user-comments.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 @NgModule({
   imports: [
@@ -87,6 +90,9 @@ import { CommentComponent } from './components/comment/comment.component';
       PaymentComponent,
       CommentsComponent,
       CommentComponent,
+      OrdersComponent,
+      UserCommentsComponent,
+      ProfileEditComponent,
   ],
     providers: [
         BookService,

@@ -10,6 +10,14 @@ export class CommentService {
 
     constructor(private http: Http) { }
 
+    getAllComments(): Observable<any> {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json, image/png, text/html');
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/comments', options);
+    }
+
     getComments(id): Observable<any> {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json, image/png, text/html');
@@ -36,6 +44,24 @@ export class CommentService {
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
         return this.http.get('http://localhost/bookstore.back/public/index.php/api/user/' + id, options);
+    }
+
+    getUserComments(id): Observable<any> {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json, image/png, text/html');
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost/bookstore.back/public/index.php/api/comments/user/' + id, options);
+    }
+
+    postEditComment(formData: any): Observable<any> {
+        console.log(formData.get('visibility'));
+        const headers = new Headers();
+        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost/bookstore.back/public/index.php/api/comments/'
+            + formData.get('id') + '/edit', formData, options);
     }
 
 }

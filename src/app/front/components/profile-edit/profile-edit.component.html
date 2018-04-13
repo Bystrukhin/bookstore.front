@@ -1,0 +1,16 @@
+<div class="edit-container" *ngFor="let item of user" >
+  <form (ngSubmit)="postEditUser(f)" #f="ngForm">
+    <div>
+      <input type="hidden" id="id" name="id" [(ngModel)]="item.user_id" value="{{item.user_id}}">
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="item.name" value="{{item.name}}">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" [(ngModel)]="item.email" value="{{item.email}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+  </form>
+</div>

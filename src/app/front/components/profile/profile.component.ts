@@ -16,7 +16,6 @@ import {User} from '../../../models/user';
 export class ProfileComponent implements OnInit {
 
   comments: Comment[];
-  orders: Order[];
   user: User[];
 
   constructor(
@@ -32,16 +31,5 @@ export class ProfileComponent implements OnInit {
       if (this.authService.getUser()) {
           this.user = JSON.parse(sessionStorage.getItem('currentUser'));
       }
-     // this.getOrders();
   }
-
-    // getOrders(): void {
-    //     const id = +this.route.snapshot.paramMap.get('id');
-    //     this.cartService.getUserOrders(id)
-    //         .subscribe(
-    //             orders => {
-    //                 this.orders = orders.json();
-    //             });
-    // }
-
 }

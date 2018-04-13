@@ -1,0 +1,14 @@
+<mat-card *ngFor="let comment of comments">
+    <mat-card-title >
+      <a href="#" routerLinkActive="active"></a>
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <h3 id="book_title">{{comment.title}}</h3>
+      </div>
+        <div>{{comment.date}}</div>
+      <div>{{comment.text}}</div>
+    </mat-card-content>
+</mat-card>
+
+

@@ -8,6 +8,7 @@ import {BooksComponent} from './components/books/books.component';
 import {BookAddComponent} from './components/book-add/book-add.component';
 import {BookEditComponent} from './components/book-edit/book-edit.component';
 import {OrdersComponent} from './components/orders/orders.component';
+import {CommentsComponent} from './components/comments/comments.component';
 import {OrderDetailsComponent} from './components/order-details/order-details.component';
 import {NewsComponent} from './components/news/news.component';
 import {PublishersComponent} from './components/publishers/publishers.component';
@@ -31,6 +32,7 @@ const adminRoutes: Routes = [
                     { path: 'books', component: BooksComponent},
                     { path: 'news', component: NewsComponent},
                     { path: 'orders', component: OrdersComponent},
+                    { path: 'comments', component: CommentsComponent},
                     { path: 'publishers', component: PublishersComponent},
                     { path: 'authors', component: AuthorsComponent},
                     { path: 'orders/:id', component: OrderDetailsComponent},

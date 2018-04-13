@@ -34,6 +34,8 @@ import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorEditComponent } from './components/author-edit/author-edit.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
 import { AppPipesModule } from '../app-pipes.module';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { AppPipesModule } from '../app-pipes.module';
       AuthorsComponent,
       AuthorEditComponent,
       AuthorAddComponent,
+      CommentsComponent,
+      CommentComponent,
   ],
     providers: [
     PublisherService, AuthorService
