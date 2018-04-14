@@ -103,7 +103,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
             locale: 'auto',
             token: function (token) {
                 $.ajax({
-                    url: 'http://localhost/bookstore.back/public/index.php/api/checkout',
+                    url: 'http://www.back-archive.biz.ua/public/index.php/api/checkout',
                     type: 'post',
                     data: {token: token.id, email: token.email, products: JSON.stringify(products), form: JSON.stringify(orderForm)},
                     success: function(data) {

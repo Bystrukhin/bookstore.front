@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { FrontModule } from './front/front.module';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -32,7 +33,7 @@ import { AuthGuardGuard } from './auth-guard.guard';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [PaginationService, AuthGuardGuard],
+  providers: [PaginationService, AuthGuardGuard, Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

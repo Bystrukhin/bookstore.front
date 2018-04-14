@@ -95,7 +95,7 @@ export class CartService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/orders', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders', options);
     }
 
     getOrderDetails(id): Observable<any> {
@@ -103,7 +103,7 @@ export class CartService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/orders/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/' + id, options);
     }
 
     getUserOrders(id): Observable<any> {
@@ -111,6 +111,6 @@ export class CartService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/orders/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/user/' + id, options);
     }
 }

@@ -11,6 +11,8 @@ import {BooksComponent} from './components/books/books.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {ArticleComponent} from './components/article/article.component';
 import {NewsComponent} from './components/news/news.component';
+import {DeliveryComponent} from './components/delivery/delivery.component';
+import {AboutComponent} from './components/about/about.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 import {PaymentComponent} from './components/payment/payment.component';
@@ -29,6 +31,8 @@ const frontRoutes: Routes = [
                     { path: 'books/:category/:genre', component: BooksComponent},
                     { path: 'books/:category/:genre/:id', component: BookDetailsComponent},
                     { path: 'cart', component: ShoppingCartComponent},
+                    { path: 'delivery', component: DeliveryComponent},
+                    { path: 'about', component: AboutComponent},
                     { path: 'news', component: NewsComponent},
                     { path: 'news/:id', component: ArticleComponent},
                     { path: 'user/signup', component: SignupComponent },

@@ -15,7 +15,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/bestsellers', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/bestsellers', options);
     }
 
     getCategoriesMenu(): Observable<any> {
@@ -23,7 +23,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/categories_menu', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/categories_menu', options);
     }
 
     getBooks(genre): Observable<any> {
@@ -31,7 +31,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/genre/' + genre, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genre/' + genre, options);
     }
 
     getAllBooks(): Observable<any> {
@@ -39,7 +39,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books', options);
     }
 
     getBooksByCategory(category): Observable<any> {
@@ -47,7 +47,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/category/' + category, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/category/' + category, options);
     }
 
     getBook(id: number): Observable<any> {
@@ -55,7 +55,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id, options);
     }
 
     getGenres(): Observable<any> {
@@ -63,7 +63,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/genres', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genres', options);
     }
 
     getDeleteBook(id: number): Observable<any> {
@@ -71,7 +71,7 @@ export class BookService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/books/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id + '/delete', options);
     }
 
     postEditBook(formData: any): Observable<any> {
@@ -79,7 +79,7 @@ export class BookService {
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/books/'
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/'
             + formData.get('id') + '/edit', formData, options);
     }
 
@@ -88,7 +88,7 @@ export class BookService {
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/books/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/add', formData, options);
     }
 
 }

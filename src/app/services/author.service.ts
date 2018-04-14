@@ -13,7 +13,7 @@ export class AuthorService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/authors/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id, options);
     }
 
     getAuthors(): Observable<any> {
@@ -21,7 +21,7 @@ export class AuthorService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/authors', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors', options);
     }
 
     getDeleteAuthor(id: number): Observable<any> {
@@ -29,7 +29,7 @@ export class AuthorService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/authors/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id + '/delete', options);
     }
 
     postEditAuthor(formData: any): Observable<any> {
@@ -37,7 +37,7 @@ export class AuthorService {
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/authors/'
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/'
             + formData.get('id') + '/edit', formData, options);
     }
 
@@ -46,7 +46,7 @@ export class AuthorService {
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/authors/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/index.php/api/authors/add', formData, options);
     }
 
 }

@@ -48,6 +48,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   imports: [
@@ -93,6 +95,8 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
       OrdersComponent,
       UserCommentsComponent,
       ProfileEditComponent,
+      DeliveryComponent,
+      AboutComponent,
   ],
     providers: [
         BookService,

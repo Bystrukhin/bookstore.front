@@ -9,7 +9,7 @@ export class PaymentService {
     }
 
     makePayment(token, products) {
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/checkout',
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/checkout',
             {token: token.id, products: products},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }

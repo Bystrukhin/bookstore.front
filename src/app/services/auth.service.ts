@@ -65,14 +65,14 @@ export class AuthService {
         headers.append('Content-Type', 'application/json, image/png, text/html');
         headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
         const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost/bookstore.back/public/index.php/api/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/user/' + id, options);
     }
 
     postEditUser(formData: any): Observable<any> {
         const headers = new Headers();
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/user/'
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/user/'
             + formData.get('id') + '/edit', formData, options);
     }
 
@@ -81,7 +81,7 @@ export class AuthService {
         const headers = new Headers();
         headers.append('X-Requested-With', 'XMLHttpRequest');
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/password/reset',
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/password/reset',
             formData, options);
     }
 

@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 @Injectable()
 export class SearchService {
 
-    baseUrl: string = 'http://localhost/bookstore.back/public/index.php/api/books/search/';
+    baseUrl: string = 'http://www.back-archive.biz.ua/public/index.php/api/books/search/';
 
     constructor(private http: Http) { }
 
