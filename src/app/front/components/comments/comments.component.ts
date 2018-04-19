@@ -55,13 +55,13 @@ export class CommentsComponent implements OnInit {
         this.formData.append('book_id', id);
         this.formData.append('user_id', form.value.user_id);
         this.formData.append('text', form.value.text);
-        this.commentService.postAddComment(this.formData)
+        this.commentService.postAddComment(this.formData.get('book_id'),
+            this.formData.get('user_id'), this.formData.get('text'))
             .subscribe(
                 comments => {
                     this.comments = comments.json();
+                    window.location.reload(true);
                 });
-        window.location.reload();
+
     }
-
-
 }

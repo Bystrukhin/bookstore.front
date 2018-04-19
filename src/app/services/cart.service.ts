@@ -91,26 +91,17 @@ export class CartService {
     }
 
     getOrders(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getOrderDetails(id): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getUserOrders(id): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/user/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 }

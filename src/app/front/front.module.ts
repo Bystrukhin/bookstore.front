@@ -41,7 +41,6 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AdminModule } from '../admin/admin.module';
 import { FrontComponent } from './front.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { UrlFormComponent } from './components/url-form/url-form.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
@@ -88,7 +87,6 @@ import { AboutComponent } from './components/about/about.component';
       LogoutComponent,
       FrontComponent,
       ShoppingCartComponent,
-      UrlFormComponent,
       PaymentComponent,
       CommentsComponent,
       CommentComponent,

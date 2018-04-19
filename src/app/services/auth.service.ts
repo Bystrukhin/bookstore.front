@@ -10,7 +10,7 @@ export class AuthService {
     }
 
     signup(username: string, email: string, password: string) {
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/user/signup',
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/user/signup',
             {name: username, email: email, password: password},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
             .map(
@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     signin(email: string, password: string) {
-        return this.http.post('http://localhost/bookstore.back/public/index.php/api/user/signin',
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/user/signin',
             {email: email, password: password},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
             .map(
@@ -61,28 +61,21 @@ export class AuthService {
     }
 
     getEditUser(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/user/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
-    postEditUser(formData: any): Observable<any> {
-        const headers = new Headers();
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
+    postEditUser(id: number, name: string, email: string): Observable<any> {
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/user/'
-            + formData.get('id') + '/edit', formData, options);
+            + id + '/edit',
+        {id: id, name: name, email: email},
+        {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
-    reset(formData: any): Observable<any> {
-        console.log(formData.get('email'));
-        const headers = new Headers();
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
+    reset(email: string): Observable<any> {
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/password/reset',
-            formData, options);
+            {email: email},
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     logout() {

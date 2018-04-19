@@ -43,9 +43,9 @@ export class AuthorsComponent implements OnInit {
             .subscribe(
                 response => {
                     console.log(response);
+                    this.router.navigateByUrl(this.returnUrl);
+                    window.location.reload();
                 });
-        this.router.navigateByUrl(this.returnUrl);
-        window.location.reload();
     }
 
     setPage(page: number) {

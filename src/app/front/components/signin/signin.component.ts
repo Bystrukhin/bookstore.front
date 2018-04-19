@@ -43,7 +43,7 @@ export class SigninComponent implements OnInit {
 
     onForgotPassword(form: NgForm) {
         this.formData.append('email', form.value.email);
-        this.authService.reset(this.formData)
+        this.authService.reset(this.formData.get('email'))
             .subscribe(
                 data => this.success_message = true,
                 error => this.error_message = true

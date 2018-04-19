@@ -99,7 +99,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         sessionStorage.setItem('form', JSON.stringify(orderForm));
         console.log(sessionStorage.getItem('form'));
         const handler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_P1hSoeinjQLHLuPzZo0hwMOA',
+            key: 'pk_test_key',
             locale: 'auto',
             token: function (token) {
                 $.ajax({

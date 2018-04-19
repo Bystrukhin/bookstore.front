@@ -46,8 +46,8 @@ export class CommentComponent implements OnInit {
             .subscribe(
                 comment => {
                     this.comment = comment.json();
+                    window.location.reload();
                 });
-        window.location.reload();
     }
 
 }

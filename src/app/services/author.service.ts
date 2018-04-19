@@ -9,44 +9,29 @@ export class AuthorService {
     constructor(private http: Http) { }
 
     getAuthor(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getAuthors(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getDeleteAuthor(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id + '/delete',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditAuthor(formData: any): Observable<any> {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/'
-            + formData.get('id') + '/edit', formData, options);
+            + formData.get('id') + '/edit', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddAuthor(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://www.back-archive.biz.ua/index.php/api/authors/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/add', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
 }

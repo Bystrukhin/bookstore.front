@@ -10,52 +10,33 @@ export class NewsService {
   constructor(private http: Http) { }
 
     getNews(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getLastNews(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/last', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/last',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getArticle(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getDeleteArticle(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/' + id + '/delete',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditArticle(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/'
-            + formData.get('id') + '/edit', formData, options);
+            + formData.get('id') + '/edit', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddArticle(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/add', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
-
 }

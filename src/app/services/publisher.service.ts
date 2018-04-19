@@ -9,44 +9,29 @@ export class PublisherService {
     constructor(private http: Http) { }
 
     getPublisher(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getPublishers(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getDeletePublisher(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/publishers/' + id + '/delete',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditPublisher(formData: any): Observable<any> {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/publishers/'
-            + formData.get('id') + '/edit', formData, options);
+            + formData.get('id') + '/edit', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddPublisher(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/publishers/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/publishers/add', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
 }

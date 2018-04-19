@@ -93,9 +93,9 @@ export class BookAddComponent implements OnInit {
             .subscribe(
                 book => {
                     this.book = book.json();
+                    this.router.navigate([this.returnUrl]);
+                    window.location.reload();
                 });
-        this.router.navigate([this.returnUrl]);
-        window.location.reload();
     }
 
 }

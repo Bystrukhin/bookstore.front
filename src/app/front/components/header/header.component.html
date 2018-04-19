@@ -48,7 +48,7 @@
         <div id="results" *ngIf="results">
           <div *ngFor="let result of results | slice:0:9">
             <mat-card>
-              <a href="books/{{result.category_name}}/{{result.genre_name}}/{{result.book_id}}" routerLinkActive="active"><img mat-card-image [alt]="result.title" name="{{result.title}}" src="http://localhost/bookstore.back/public/{{result.image}}"></a>
+              <a href="books/{{result.category_name}}/{{result.genre_name}}/{{result.book_id}}" routerLinkActive="active"><img mat-card-image [alt]="result.title" name="{{result.title}}" src="http://www.back-archive.biz.ua/public/{{result.image}}"></a>
               <mat-card-title >
                 <a href="books/{{result.category_name}}/{{result.genre_name}}/{{result.book_id}}" routerLinkActive="active">{{result.title}}</a>
               </mat-card-title>

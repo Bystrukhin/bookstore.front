@@ -44,7 +44,7 @@ export class ProfileEditComponent implements OnInit {
         this.formData.append('id', form.value.id);
         this.formData.append('name', form.value.name);
         this.formData.append('email', form.value.email);
-        this.authService.postEditUser(this.formData)
+        this.authService.postEditUser(this.formData.get('id'), this.formData.get('name'), this.formData.get('email'))
             .subscribe(
                 user => {
                     this.user = user.json();

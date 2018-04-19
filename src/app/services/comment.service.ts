@@ -11,57 +11,39 @@ export class CommentService {
     constructor(private http: Http) { }
 
     getAllComments(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getComments(id): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     like (id): Observable<any> {
         return null;
     }
 
-    postAddComment(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/add', formData, options);
+    postAddComment(book_id: number, user_id: number, text: string) {
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/add',
+            {book_id: book_id, user_id: user_id, text: text},
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getUser(id) {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/user/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getUserComments(id): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.uak/public/index.php/api/comments/user/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments/user/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditComment(formData: any): Observable<any> {
-        console.log(formData.get('visibility'));
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/'
-            + formData.get('id') + '/edit', formData, options);
+            + formData.get('id') + '/edit', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
 }

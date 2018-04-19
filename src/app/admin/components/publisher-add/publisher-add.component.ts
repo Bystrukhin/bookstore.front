@@ -39,9 +39,9 @@ export class PublisherAddComponent implements OnInit {
             .subscribe(
                 response => {
                     this.publisher = response.json();
+                    this.router.navigate([this.returnUrl]);
+                    window.location.reload();
                 });
-        this.router.navigate([this.returnUrl]);
-        window.location.reload();
     }
 
 }

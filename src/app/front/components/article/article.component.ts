@@ -31,7 +31,6 @@ export class ArticleComponent implements OnInit {
                 article => {
                     this.article = article.json();
                 });
-        console.log(this.article);
     }
 
 }

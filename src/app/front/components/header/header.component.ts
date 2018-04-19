@@ -28,7 +28,6 @@ export class HeaderComponent implements DoCheck {
         this.searchService.search(this.searchTerm$)
             .subscribe(results => {
                 this.results = results.json();
-                console.log(this.results);
             });
     }
 
@@ -50,9 +49,5 @@ export class HeaderComponent implements DoCheck {
         }
     }
       this.productsQuantity = JSON.parse(sessionStorage.getItem('productsQuantity'));
-  }
-
-  onURLChange(url) {
-        this.cartService.flushCart();
   }
 }

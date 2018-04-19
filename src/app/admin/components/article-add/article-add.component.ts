@@ -53,9 +53,9 @@ export class ArticleAddComponent implements OnInit {
             .subscribe(
                 response => {
                     this.article = response.json();
+                    this.router.navigate([this.returnUrl]);
+                    window.location.reload();
                 });
-        this.router.navigate([this.returnUrl]);
-        window.location.reload();
     }
 
 }

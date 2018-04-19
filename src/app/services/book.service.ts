@@ -11,84 +11,54 @@ export class BookService {
     constructor(private http: Http) { }
 
     getBestsellers(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/bestsellers', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/bestsellers',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getCategoriesMenu(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/categories_menu', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/categories_menu',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getBooks(genre): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genre/' + genre, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genre/' + genre,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getAllBooks(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getBooksByCategory(category): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/category/' + category, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/category/' + category,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getBook(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id, options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getGenres(): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genres', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genres',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getDeleteBook(id: number): Observable<any> {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json, image/png, text/html');
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id + '/delete', options);
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id + '/delete',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditBook(formData: any): Observable<any> {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/'
-            + formData.get('id') + '/edit', formData, options);
+            + formData.get('id') + '/edit', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddBook(formData: any) {
-        const headers = new Headers();
-        headers.append('Accept', 'application/json, image/png, text/html, image/webp,image/apng,image/*,*/*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/add', formData, options);
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/add', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
 }
