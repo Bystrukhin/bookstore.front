@@ -15,7 +15,6 @@ import {DeliveryComponent} from './components/delivery/delivery.component';
 import {AboutComponent} from './components/about/about.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
-import {PaymentComponent} from './components/payment/payment.component';
 import {UserCommentsComponent} from './components/user-comments/user-comments.component';
 import {OrdersComponent} from './components/orders/orders.component';
 
@@ -42,7 +41,6 @@ const frontRoutes: Routes = [
                     { path: 'user/profile/comments/:userId', component: UserCommentsComponent },
                     { path: 'user/profile/orders/:userId', component: OrdersComponent },
                     { path: 'logout', component: LogoutComponent },
-                    { path: 'checkout', component: PaymentComponent },
                     { path: '', component: HomePageComponent},
                 ]
             }

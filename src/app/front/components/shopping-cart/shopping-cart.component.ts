@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, TemplateRef, Component, OnDestroy, OnInit} from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
-import { PaymentService } from '../../../services/payment.service';
 import { Subscription } from 'rxjs/Subscription';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -35,7 +34,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
     constructor(private cartService: CartService,
                 changeDetectorRef: ChangeDetectorRef,
-                private paymentService: PaymentService,
                 private modalService: BsModalService,
                 private authService: AuthService,
                 fb: FormBuilder
@@ -45,7 +43,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
             for (let item of this.currentUser) {
                 this.user_id = item.user_id;
             }
-            console.log(this.user_id);
         }
         this.changeDetectorRef = changeDetectorRef;
         this.orderForm = fb.group({
@@ -97,13 +94,12 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     openCheckout(products, orderForm) {
         this.modalRef.hide();
         sessionStorage.setItem('form', JSON.stringify(orderForm));
-        console.log(sessionStorage.getItem('form'));
         const handler = (<any>window).StripeCheckout.configure({
             key: 'pk_test_key',
             locale: 'auto',
             token: function (token) {
                 $.ajax({
-                    url: 'http://www.back-archive.biz.ua/public/index.php/api/checkout',
+                    url: 'http://www.back-archive.biz.ua/public/index.php/api/orders',
                     type: 'post',
                     data: {token: token.id, email: token.email, products: JSON.stringify(products), form: JSON.stringify(orderForm)},
                     success: function(data) {

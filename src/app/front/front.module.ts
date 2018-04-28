@@ -18,7 +18,6 @@ import { BookService } from '../services/book.service';
 import { NewsService } from '../services/news.service';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
-import { PaymentService } from '../services/payment.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { SearchService } from '../services/search.service';
 import { CommentService } from '../services/comment.service';
@@ -41,7 +40,6 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AdminModule } from '../admin/admin.module';
 import { FrontComponent } from './front.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { OrdersComponent } from './components/orders/orders.component';
@@ -87,7 +85,6 @@ import { AboutComponent } from './components/about/about.component';
       LogoutComponent,
       FrontComponent,
       ShoppingCartComponent,
-      PaymentComponent,
       CommentsComponent,
       CommentComponent,
       OrdersComponent,
@@ -101,7 +98,6 @@ import { AboutComponent } from './components/about/about.component';
         NewsService,
         AuthService,
         CartService,
-        PaymentService,
         BsModalService,
         SearchService,
         CommentService,

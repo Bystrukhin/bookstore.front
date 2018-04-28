@@ -1,4 +1,6 @@
 table.orders-table {
+    background-color: #E8E8E8;
+    margin: 0 auto;
     border: 3px solid black;
     border-spacing: 0.5rem;
 }

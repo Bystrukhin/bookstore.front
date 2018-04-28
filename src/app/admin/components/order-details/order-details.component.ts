@@ -11,7 +11,7 @@ import {Location} from '@angular/common';
 })
 export class OrderDetailsComponent implements OnInit {
 
-    @Input() order: OrderDetails[];
+    @Input() order: any;
 
     constructor(
         private cartService: CartService,

@@ -13,7 +13,7 @@
         <mat-card-content>
           <div>{{book.price}} $</div>
             <a href="admin/books/{{book.book_id}}/edit" routerLinkActive="active"><span><i class="fa fa-pencil"></i>&nbsp; Edit</span></a>
-            <a (click)="getDeleteBook(book.book_id)" routerLinkActive="active"><span><i class="fa fa-trash"></i>&nbsp; Delete</span></a>
+            <span (click)="getDeleteBook(book.book_id)" routerLinkActive="active"><i class="fa fa-trash"></i>&nbsp; Delete</span>
         </mat-card-content>
       </mat-card>
     </div>

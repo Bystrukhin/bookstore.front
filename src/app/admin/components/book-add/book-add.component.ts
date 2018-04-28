@@ -22,6 +22,7 @@ export class BookAddComponent implements OnInit {
     genre: any;
     publisher: any;
     author: any;
+    category: any;
 
     constructor(
         private bookService: BookService,
@@ -39,6 +40,7 @@ export class BookAddComponent implements OnInit {
         this.getGenres();
         this.getPublishers();
         this.getAuthors();
+        this.getCategories();
     }
 
     getFiles(event) {
@@ -57,6 +59,14 @@ export class BookAddComponent implements OnInit {
             .subscribe(
                 response => {
                     this.genre = response.json();
+                });
+    }
+
+    getCategories(): void {
+        this.bookService.getCategories()
+            .subscribe(
+                response => {
+                    this.category = response.json();
                 });
     }
 
@@ -85,6 +95,7 @@ export class BookAddComponent implements OnInit {
         this.formData.append('publication_year', form.value.publication_year);
         this.formData.append('price', form.value.price);
         this.formData.append('genre_id', form.value.genre_id);
+        this.formData.append('category_id', form.value.category_id);
         this.formData.append('stock_level', form.value.stock_level);
         this.formData.append('type_id', form.value.type_id);
         this.formData.append('publisher_id', form.value.publisher_id);

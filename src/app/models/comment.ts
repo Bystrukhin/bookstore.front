@@ -6,5 +6,5 @@ export interface Comment {
     user_id: number;
     book_id: number;
     title: string;
-    date: number;
+    created_at: number;
 }

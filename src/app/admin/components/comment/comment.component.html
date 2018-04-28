@@ -6,7 +6,7 @@
     <div *ngFor="let item of user">
       <h3 id="user_id">User name: {{item.name}}</h3>
     </div>
-    <div>Comment date: {{comment.date}}</div>
+    <div>Comment date: {{comment.created_at}}</div>
     <div>{{comment.text}}</div>
     <div class="add-like-wrapper">
       <a class="like" (click)="onLike(comment)"><i class="fa fa-like fa-1x" aria-hidden="true"></i></a>

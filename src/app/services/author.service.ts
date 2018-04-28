@@ -19,18 +19,17 @@ export class AuthorService {
     }
 
     getDeleteAuthor(id: number): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/' + id + '/delete',
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/authors/destroy/' + id,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditAuthor(formData: any): Observable<any> {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/'
-            + formData.get('id') + '/edit', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/update', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddAuthor(formData: any) {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors/add', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/authors', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 

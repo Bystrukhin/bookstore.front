@@ -8,7 +8,7 @@ import {BookService} from '../../../services/book.service';
   styleUrls: ['./slider-best-books.component.css']
 })
 export class SliderBestBooksComponent implements OnInit {
-    bestsellers: Book[];
+    bestsellers: any;
     constructor(
         private bookService: BookService,
     ) {}

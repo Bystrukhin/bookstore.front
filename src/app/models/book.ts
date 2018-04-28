@@ -4,7 +4,7 @@ export interface Book {
     description: string;
     publication_year: number;
     price: number;
-    genre: string;
+    genre: string[];
     author_id: string;
     publisher_id: string;
     book_id: number;
@@ -15,4 +15,5 @@ export interface Book {
     stock_level: number;
     type_id: number;
     image: string;
+    category: string[];
 }

@@ -21,7 +21,7 @@ export class BookService {
     }
 
     getBooks(genre): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genre/' + genre,
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/genre/' + genre,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
@@ -31,7 +31,7 @@ export class BookService {
     }
 
     getBooksByCategory(category): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/category/' + category,
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + category,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
@@ -41,23 +41,27 @@ export class BookService {
     }
 
     getGenres(): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/genres',
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/genre',
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+    }
+
+    getCategories(): Observable<any> {
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/category',
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     getDeleteBook(id: number): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/' + id + '/delete',
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/destroy/' + id,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditBook(formData: any): Observable<any> {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/'
-            + formData.get('id') + '/edit', formData,
+        return this.http.put('http://www.back-archive.biz.ua/public/index.php/api/books/update', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddBook(formData: any) {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/add', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 

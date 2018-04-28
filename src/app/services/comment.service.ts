@@ -25,7 +25,7 @@ export class CommentService {
     }
 
     postAddComment(book_id: number, user_id: number, text: string) {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/add',
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments',
             {book_id: book_id, user_id: user_id, text: text},
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
@@ -41,8 +41,7 @@ export class CommentService {
     }
 
     postEditComment(formData: any): Observable<any> {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/'
-            + formData.get('id') + '/edit', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/update', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 

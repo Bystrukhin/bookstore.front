@@ -36,7 +36,7 @@ export class ProfileEditComponent implements OnInit {
         this.authService.getEditUser(id)
             .subscribe(
                 response => {
-                    this.user = response.json();
+                    this.user = response;
                 });
     }
 
@@ -44,10 +44,10 @@ export class ProfileEditComponent implements OnInit {
         this.formData.append('id', form.value.id);
         this.formData.append('name', form.value.name);
         this.formData.append('email', form.value.email);
-        this.authService.postEditUser(this.formData.get('id'), this.formData.get('name'), this.formData.get('email'))
+        this.authService.postEditUser(this.formData)
             .subscribe(
                 user => {
-                    this.user = user.json();
+                    this.user = user;
                 });
         sessionStorage.setItem('currentUser', JSON.stringify(this.user));
         this.router.navigate([this.returnUrl]);

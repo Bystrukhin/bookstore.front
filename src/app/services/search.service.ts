@@ -20,8 +20,7 @@ export class SearchService {
     }
 
     searchEntries(term) {
-        return this.http
-            .get(this.baseUrl + term);
+        return this.http.get(this.baseUrl + term);
             // .map(res => res.json());
     }
 

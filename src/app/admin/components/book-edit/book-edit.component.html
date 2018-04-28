@@ -34,6 +34,12 @@
         <option *ngFor = "let genreItem of genre" value="{{genreItem.genre_id}}">{{genreItem.genre_name}}</option>
       </select>
     </div>
+    <div>Category
+      <select id="category_id" name="category_id" [(ngModel)]="item.category_id">
+        <option value="">Choose category</option>
+        <option *ngFor = "let categoryItem of category" value="{{categoryItem.category_id}}">{{categoryItem.category_name}}</option>
+      </select>
+    </div>
     <div>
       <label for="stock_level">Stock level</label>
       <input type="text" id="stock_level" name="stock_level" [(ngModel)]="item.stock_level" value="{{item.stock_level}}">

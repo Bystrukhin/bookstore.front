@@ -10,7 +10,7 @@ import {CartService} from '../../../services/cart.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  @Input() book: Book;
+  @Input() book: any;
   constructor(
       private cartService: CartService,
       private route: ActivatedRoute,

@@ -25,18 +25,17 @@ export class NewsService {
     }
 
     getDeleteArticle(id: number): Observable<any> {
-        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/' + id + '/delete',
+        return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/news/destroy/' + id,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postEditArticle(formData: any) {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/'
-            + formData.get('id') + '/edit', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/update', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 
     postAddArticle(formData: any) {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news/add', formData,
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/news', formData,
             {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
     }
 }

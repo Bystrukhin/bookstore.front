@@ -43,7 +43,6 @@ export class BooksComponent implements OnInit {
             .subscribe(
                 response => {
                     console.log(response);
-                    this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });
     }
