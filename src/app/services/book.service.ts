@@ -52,17 +52,17 @@ export class BookService {
 
     getDeleteBook(id: number): Observable<any> {
         return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/books/destroy/' + id,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 
     postEditBook(formData: any): Observable<any> {
-        return this.http.put('http://www.back-archive.biz.ua/public/index.php/api/books/update', formData,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books/update', formData,
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 
     postAddBook(formData: any) {
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/books', formData,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 
 }

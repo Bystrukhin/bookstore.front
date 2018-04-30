@@ -42,7 +42,7 @@ export class CommentService {
 
     postEditComment(formData: any): Observable<any> {
         return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/update', formData,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 
 }

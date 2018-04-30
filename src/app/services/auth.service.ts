@@ -47,9 +47,7 @@ export class AuthService {
                     const token = response.json().token;
                     const user = response.json().user;
                     const newUser = [];
-                    for (const item of user) {
-                        newUser.push(item);
-                    }
+                    newUser.push(user);
                     const base64Url = token.split('.')[1];
                     const base64 = base64Url.replace('-', '+').replace('_', '/');
                     return {token: token, user: newUser, decoded: JSON.parse(window.atob(base64))};
@@ -69,8 +67,8 @@ export class AuthService {
     }
 
     postEditUser(formData: any): Observable<any> {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/user/update',
-            formData, {headers: new HttpHeaders({'X-Requested-With': 'XMLHttpRequest'})});
+        return this.httpOld.post('http://www.back-archive.biz.ua/public/index.php/api/user/update',
+            formData, {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 
     reset(email: string): Observable<any> {

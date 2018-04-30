@@ -102,6 +102,6 @@ export class CartService {
 
     getUserOrders(id): Observable<any> {
         return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/orders/user/' + id,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})});
+            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
     }
 }

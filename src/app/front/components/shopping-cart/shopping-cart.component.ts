@@ -95,7 +95,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.modalRef.hide();
         sessionStorage.setItem('form', JSON.stringify(orderForm));
         const handler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_key',
+            key: 'pk_test_password',
             locale: 'auto',
             token: function (token) {
                 $.ajax({
