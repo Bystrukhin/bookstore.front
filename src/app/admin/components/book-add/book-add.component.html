@@ -2,6 +2,7 @@
   <form (ngSubmit)="postAddBook(f)" #f="ngForm" enctype="multipart/form-data">
     <div>
       <label for="image">Image</label>
+      <input type="hidden" name="default_image" id="default_image" ngModel value="../../../../assets/images/icons/default_bookcover.jpg">
       <input type="file" name="image" id="image" ngModel (change)="getFiles($event)">
     </div>
     <div>

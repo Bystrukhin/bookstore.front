@@ -89,7 +89,7 @@ export class BookAddComponent implements OnInit {
     postAddBook(form: NgForm): void {
         this.formData.append('title', form.value.title);
         this.formData.append('description', form.value.description);
-        this.formData.append('article_old_image', form.value.article_old_image);
+        this.formData.append('default_image', form.value.article_old_image);
         this.formData.append('id', form.value.id);
         this.formData.append('isbn', form.value.isbn);
         this.formData.append('publication_year', form.value.publication_year);
