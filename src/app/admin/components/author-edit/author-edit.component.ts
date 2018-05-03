@@ -48,7 +48,7 @@ export class AuthorEditComponent implements OnInit {
         this.authorService.postEditAuthor(this.formData)
             .subscribe(
                 response => {
-                    this.author = response.json();
+                    this.author = response;
                     this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });

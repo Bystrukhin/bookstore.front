@@ -3,12 +3,13 @@ import {Observable} from 'rxjs/Observable';
 import {Headers, RequestOptions} from '@angular/http';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 
 
 @Injectable()
 export class CommentService {
 
-    constructor(private http: Http) { }
+    constructor(private httpNew: HttpClient, private http: Http) { }
 
     getAllComments(): Observable<any> {
         return this.http.get('http://www.back-archive.biz.ua/public/index.php/api/comments',
@@ -41,8 +42,12 @@ export class CommentService {
     }
 
     postEditComment(formData: any): Observable<any> {
-        return this.http.post('http://www.back-archive.biz.ua/public/index.php/api/comments/update', formData,
-            {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
+        const body = new HttpParams()
+            .set(`id`, formData.get('id'))
+            .set(`visibility`, formData.get('visibility'));
+        return this.httpNew.put('http://www.back-archive.biz.ua/public/index.php/api/comments/update', body,
+            {headers: new HttpHeaders({'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': sessionStorage.getItem('token')})});
     }
 
 }

@@ -45,7 +45,7 @@ export class CommentComponent implements OnInit {
         this.commentService.postEditComment(this.formData)
             .subscribe(
                 comment => {
-                    this.comment = comment.json();
+                    this.comment = comment;
                     window.location.reload();
                 });
     }

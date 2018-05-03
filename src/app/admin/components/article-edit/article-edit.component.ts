@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ArticleEditComponent implements OnInit {
 
-    @Input() article: Observable<Article[]>;
+    article: any;
     returnUrl: string;
     image: any;
     formData: any;
@@ -59,8 +59,8 @@ export class ArticleEditComponent implements OnInit {
       this.formData.append('id', form.value.id);
             this.newsService.postEditArticle(this.formData)
                 .subscribe(
-                    response => {
-                        this.article = response.json();
+                    article => {
+                        this.article = article;
                         this.router.navigate([this.returnUrl]);
                         window.location.reload();
                     });

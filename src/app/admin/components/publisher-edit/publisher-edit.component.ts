@@ -49,7 +49,7 @@ export class PublisherEditComponent implements OnInit {
         this.publisherService.postEditPublisher(this.formData)
             .subscribe(
                 response => {
-                    this.publisher = response.json();
+                    this.publisher = response;
                     this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });

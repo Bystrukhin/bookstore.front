@@ -113,7 +113,7 @@ export class BookEditComponent implements OnInit {
         this.bookService.postEditBook(this.formData)
             .subscribe(
                 book => {
-                    this.book = book.json();
+                    this.book = book;
                     this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });

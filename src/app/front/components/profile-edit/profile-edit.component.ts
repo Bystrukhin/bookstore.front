@@ -16,7 +16,6 @@ export class ProfileEditComponent implements OnInit {
     @Input() user: Observable<User[]>;
     returnUrl: string;
     formData: any;
-    token: string;
 
     constructor(
         private authService: AuthService,
@@ -30,7 +29,6 @@ export class ProfileEditComponent implements OnInit {
     ngOnInit() {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'user/profile';
         this.getEditUser();
-        this.token = sessionStorage.getItem('token');
     }
 
     getEditUser(): void {
@@ -46,11 +44,10 @@ export class ProfileEditComponent implements OnInit {
         this.formData.append('id', form.value.id);
         this.formData.append('name', form.value.name);
         this.formData.append('email', form.value.email);
-        this.formData.append('token', form.value.token);
         this.authService.postEditUser(this.formData)
             .subscribe(
                 user => {
-                    this.user = user.json();
+                    this.user = user;
                 });
         sessionStorage.setItem('currentUser', JSON.stringify(this.user));
         this.router.navigate([this.returnUrl]);

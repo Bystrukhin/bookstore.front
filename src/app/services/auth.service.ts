@@ -67,8 +67,13 @@ export class AuthService {
     }
 
     postEditUser(formData: any): Observable<any> {
-        return this.httpOld.post('http://www.back-archive.biz.ua/public/index.php/api/user/update',
-            formData, {headers: new Headers({'X-Requested-With': 'XMLHttpRequest', 'Authorization': sessionStorage.getItem('token')})});
+        const body = new HttpParams()
+            .set(`id`, formData.get('id'))
+            .set(`name`, formData.get('name'))
+            .set(`email`, formData.get('email'));
+        return this.http.put('http://www.back-archive.biz.ua/public/index.php/api/user/update',
+            body, {headers: new HttpHeaders({'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': sessionStorage.getItem('token')})});
     }
 
     reset(email: string): Observable<any> {

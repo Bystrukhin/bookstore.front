@@ -43,8 +43,6 @@ export class NewsComponent implements OnInit {
         this.newsService.getDeleteArticle(id)
             .subscribe(
                 response => {
-                    console.log(response);
-                    this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });
     }

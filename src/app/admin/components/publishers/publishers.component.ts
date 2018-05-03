@@ -43,8 +43,6 @@ export class PublishersComponent implements OnInit {
         this.publisherService.getDeletePublisher(id)
             .subscribe(
                 response => {
-                    console.log(response);
-                    this.router.navigate([this.returnUrl]);
                     window.location.reload();
                 });
     }

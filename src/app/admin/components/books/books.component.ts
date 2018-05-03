@@ -42,7 +42,6 @@ export class BooksComponent implements OnInit {
         this.bookService.getDeleteBook(id)
             .subscribe(
                 response => {
-                    console.log(response);
                     window.location.reload();
                 });
     }

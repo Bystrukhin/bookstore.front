@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthorService} from '../../../services/author.service';
 import { PaginationService } from '../../../services/pagination.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-authors',
@@ -16,6 +17,7 @@ export class AuthorsComponent implements OnInit {
     returnUrl: string;
     pager: any = {};
     pagedAuthors: any[];
+    formData: any;
 
     constructor(
         private authorService: AuthorService,
@@ -23,7 +25,9 @@ export class AuthorsComponent implements OnInit {
         private route: ActivatedRoute,
         private location: Location,
         private router: Router,
-    ) { }
+    ) {
+        this.formData = new FormData();
+    }
 
     ngOnInit() {
         this.getAllAuthors();
@@ -42,8 +46,6 @@ export class AuthorsComponent implements OnInit {
         this.authorService.getDeleteAuthor(id)
             .subscribe(
                 response => {
-                    console.log(response);
-                    this.router.navigateByUrl(this.returnUrl);
                     window.location.reload();
                 });
     }
