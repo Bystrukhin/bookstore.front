@@ -1,5 +1,5 @@
 <mat-card>
-    <a href="books/{{book.category.category_name}}/{{book.genre.genre_name}}/{{book.book_id}}" routerLinkActive="active"><img mat-card-image [alt]="book.title" name="{{book.title}}" src="http://www.back-archive.biz.ua/public/{{book.image}}"></a>
+    <a href="books/{{book.category.category_name}}/{{book.genre.genre_name}}/{{book.book_id}}" routerLinkActive="active"><img mat-card-image [alt]="book.title" name="{{book.title}}" onError="this.src='http://www.back-archive.biz.ua/public/images/books/default_bookcover.jpg'" src="http://www.back-archive.biz.ua/public/{{book.image}}"></a>
     <mat-card-title >
         <a href="books/{{book.category.category_name}}/{{book.genre.genre_name}}/{{book.book_id}}" routerLinkActive="active">{{book.title}}</a>
     </mat-card-title>

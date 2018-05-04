@@ -1,5 +1,5 @@
 <carousel style="display: block; width: 1000px; margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom: 50px; background-color: #E8E8E8; border-radius: 5px;">
   <slide *ngFor="let item of bestsellers" >
-    <a href="books/{{item.category.category_name}}/{{item.genre.genre_name}}/{{item.book_id}}" routerLinkActive="active"><img src="http://www.back-archive.biz.ua/public/{{item.image}}" alt="item.title" style="display: block; width: 25%; margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom: 50px;"></a>
+    <a href="books/{{item.category.category_name}}/{{item.genre.genre_name}}/{{item.book_id}}" routerLinkActive="active"><img onError="this.src='http://www.back-archive.biz.ua/public/images/books/default_bookcover.jpg'" src="http://www.back-archive.biz.ua/public/{{item.image}}" alt="item.title" style="display: block; width: 25%; margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom: 50px;"></a>
   </slide>
 </carousel>

@@ -1,5 +1,5 @@
 <mat-card *ngFor="let item of book">
-  <img mat-card-image [alt]="item.title" name="{{item.title}}" src="http://www.back-archive.biz.ua/public/{{item.image}}">
+  <img mat-card-image [alt]="item.title" name="{{item.title}}" onError="this.src='http://www.back-archive.biz.ua/public/images/books/default_bookcover.jpg'" src="http://www.back-archive.biz.ua/public/{{item.image}}">
   <mat-card-title>{{item.title}}</mat-card-title>
   <mat-card-content>
     <div>{{item.price}} $</div>
