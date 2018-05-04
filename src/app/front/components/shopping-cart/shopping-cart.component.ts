@@ -18,7 +18,6 @@ declare var $: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
-    orderForm: FormGroup;
     modalRef: BsModalRef;
     message: string;
     products: any[] = [];
@@ -36,7 +35,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
                 changeDetectorRef: ChangeDetectorRef,
                 private modalService: BsModalService,
                 private authService: AuthService,
-                fb: FormBuilder
     ) {
         if (this.authService.getUser()) {
             this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -45,16 +43,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
             }
         }
         this.changeDetectorRef = changeDetectorRef;
-        this.orderForm = fb.group({
-            'user_id': new FormControl(this.user_id),
-            'firstName': [null, Validators.required],
-            'secondName': [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
-            'phoneNumber': [null, Validators.required],
-            'address': '',
-            'city': '',
-            'postalCode': '',
-            'country': ''
-    });
     }
 
     ngOnInit() {
