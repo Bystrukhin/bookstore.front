@@ -94,10 +94,14 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
                         sessionStorage.removeItem('cart');
                         sessionStorage.removeItem('form');
                         sessionStorage.removeItem('productsQuantity');
+                        $('#success_message').show();
+                        setTimeout(function() { $('#success_message').hide(); }, 5000);
                         window.location.reload();
                         console.log('Card successfully charged!');
                     },
                     error: function(data) {
+                        $('#failure_message').show();
+                        setTimeout(function() { $('#failure_message').hide(); }, 5000);
                         console.log('Ajax Error!');
                     }
                 });            }
@@ -105,7 +109,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
         handler.open({
             name: 'Archive',
-            amount: this.cartTotal * 100
+            amount: this.cartTotal * 100,
         });
     }
 }

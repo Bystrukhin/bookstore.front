@@ -12,6 +12,8 @@
     <button class="delete" (click)="deleteProduct(item.product)"><span>X</span></button>
   </div>
     <button *ngIf="numProducts" class="pay" (click)="openModal(template)">Purchase {{cartTotal | currency:'USD':'symbol':'1.0-0'}}</button>
+  <div id="success_message" style="display:none">Your charge was successful!</div>
+  <div id="failure_message" style="display:none">Your charge was not complited!</div>
   <ng-template #template>
     <div class="modal-body text-center">
       <form (ngSubmit)="openCheckout(products, orderForm.value)" #orderForm="ngForm">
